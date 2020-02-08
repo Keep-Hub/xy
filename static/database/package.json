@@ -1,0 +1,373 @@
+{
+  "code": 0,
+  "msg:" : "string",
+  "result": {
+    "banner": [
+      {
+        "id": 1,
+        "imgSrc": "../../../static/bannerImg/banner1.png"
+      },{
+        "id": 2,
+        "imgSrc": "../../../static/bannerImg/banner2.png"
+      },{
+        "id": 3,
+        "imgSrc": "../../../static/bannerImg/banner3.png"
+      },{
+        "id": 4,
+        "imgSrc": "../../../static/bannerImg/banner4.png"
+      },{
+        "id": 5,
+        "imgSrc": "../../../static/bannerImg/banner5.png"
+      }
+    ],
+    "clothes": [
+      {
+        "id": "1",
+        "img": "../../static/HomeImg/tx-min.jpg",
+        "msg": "T恤"
+      },{
+        "id": "2",
+        "img": "../../static/HomeImg/polo-min.jpg",
+        "msg": "POLO"
+      },{
+        "id": "3",
+        "img": "../../static/HomeImg/wywk-min.jpg",
+        "msg": "卫衣卫裤"
+      },{
+        "id": "4",
+        "img": "../../static/HomeImg/fymj-min.jpg",
+        "msg": "风衣马甲"
+      },{
+        "id": "5",
+        "img": "../../static/HomeImg/zyz-min.jpg",
+        "msg": "职业装"
+      },{
+        "id": "6",
+        "img": "../../static/HomeImg/ydf-min.jpg",
+        "msg": "运动服"
+      },{
+        "id": "7",
+        "img": "../../static/HomeImg/lbf-min.jpg",
+        "msg": "劳保服"
+      },{
+        "id": "8",
+        "img": "../../static/HomeImg/cfytz-min.jpg",
+        "msg": "冲锋衣套装"
+      }
+    ],
+    "classclothes": [
+      {
+        "Id": "1",
+        "Category_ID": "HL 6880",
+        "Img": "../../static/ClassClothes/HL 6880-min.jpg",
+        "Title": "HL 6880#陶瓷桑蚕丝POLO",
+        "Price": "28.00",
+        "Optional_Color": "13"
+      },
+      {
+        "Id": "2",
+        "Category_ID": "SGC 9955",
+        "Img": "../../static/ClassClothes/SGC 9955-min.jpg",
+        "Title": "SGC 9955# 陶瓷桑蚕丝翻领",
+        "Price": "33.00",
+        "Optional_Color": "8"
+      },{
+        "Id": "3",
+        "Category_ID": "QX 902A",
+        "Img": "../../static/ClassClothes/QX 902A-min.jpg",
+        "Title": "QX 902A# 180g 成人速干",
+        "Price": "6.00",
+        "Optional_Color": "12"
+      },{
+        "Id": "4",
+        "Category_ID": "GDS S01",
+        "Img": "../../static/ClassClothes/GDS S01-min.jpg",
+        "Title": "GDS S01#180克网眼速干短袖圆领 男款",
+        "Price": "7.50",
+        "Optional_Color": "14"
+      },{
+        "Id": "5",
+        "Category_ID": "JD 76000",
+        "Img": "../../static/ClassClothes/JD 76000-min.jpg",
+        "Title": "JD 76000# 男款24支180g纯棉圆领短袖T恤",
+        "Price": "10.40",
+        "Optional_Color": "36"
+      },{
+        "Id": "6",
+        "Category_ID": "MJW-013",
+        "Img": "../../static/ClassClothes/MJW-013-min.jpg",
+        "Title": "MJW-013# 240克丝光棉珠地网眼翻领短袖",
+        "Price": "12.00",
+        "Optional_Color": "12"
+      },{
+        "Id": "7",
+        "Category_ID": "CSDW-YBD TBB-A-M",
+        "Img": "../../static/ClassClothes/CSDW-YBD TBB-A-M-min.jpg",
+        "Title": "CSDW-YBD TBB-A-M# 棉涤成人翻领POLO",
+        "Price": "16.00",
+        "Optional_Color": "18"
+      },{
+        "Id": "8",
+        "Category_ID": "CSDW-YBD CBJ-M",
+        "Img": "../../static/ClassClothes/CSDW-YBD CBJ-M-min.jpg",
+        "Title": "CSDW-YBD CBJ-M# 纯棉成人翻领POLO",
+        "Price": "20.00",
+        "Optional_Color": "17"
+      }
+    ],
+    "WorkClothes": [
+      {
+        "Id": "1",
+        "Category_ID": "NSJ 4801",
+        "Img": "../../static/WorkClothes/NSJ 4801-min.jpg",
+        "Title": "NSJ 4801# 男女款高档大斜纹长袖衬衫",
+        "Price": "29.00",
+        "Optional_Color": "4"
+      },
+      {
+        "Id": "2",
+        "Category_ID": "QY 507",
+        "Img": "../../static/WorkClothes/QY 507-min.jpg",
+        "Title": "QY 507# 职业短袖衬衫 不包含配饰",
+        "Price": "36.00",
+        "Optional_Color": "8"
+      },{
+        "Id": "3",
+        "Category_ID": "QY 2801",
+        "Img": "../../static/WorkClothes/QY 2801-min.jpg",
+        "Title": "QY 2801# 女款职场长袖衬衫",
+        "Price": "45.00",
+        "Optional_Color": "4"
+      },{
+        "Id": "4",
+        "Category_ID": "QY 1655",
+        "Img": "../../static/WorkClothes/QY 1655-min.jpg",
+        "Title": "QY 1655# 女款职场中袖衬衫",
+        "Price": "50.00",
+        "Optional_Color": "2"
+      },{
+        "Id": "5",
+        "Category_ID": "QY 88239",
+        "Img": "../../static/WorkClothes/QY 88239-min.jpg",
+        "Title": "QY 88239# 女性职业中袖西装外套",
+        "Price": "70.00",
+        "Optional_Color": "2"
+      },{
+        "Id": "6",
+        "Category_ID": "SDLB 1102",
+        "Img": "../../static/WorkClothes/SDLB 1102-min.jpg",
+        "Title": "SDLB 1102# 涤棉厚珠帆秋冬工作服套装",
+        "Price": "20.90",
+        "Optional_Color": "2"
+      },{
+        "Id": "7",
+        "Category_ID": "SDLB XW9901",
+        "Img": "../../static/WorkClothes/SDLB XW9901-min.jpg",
+        "Title": "SDLB XW9901# 细斜纹夏季工作服套装",
+        "Price": "22.00",
+        "Optional_Color": "2"
+      },{
+        "Id": "8",
+        "Category_ID": "HZJQ 11606",
+        "Img": "../../static/WorkClothes/HZJQ 11606-min.jpg",
+        "Title": "HZJQ 11606# 男女通用防静电夏长袖工作服套装",
+        "Price": "62.00",
+        "Optional_Color": "1"
+      },{
+        "Id": "9",
+        "Category_ID": "HZJQ 11605",
+        "Img": "../../static/WorkClothes/HZJQ 11605-min.jpg",
+        "Title": "HZJQ 11605# 男女通用防静电春秋长袖工作服套装",
+        "Price": "75.00",
+        "Optional_Color": "4"
+      }
+    ],
+    "SportsSeries": [
+      {
+        "Id": "1",
+        "Category_ID": "SXBJT 1010",
+        "Img": "../../static/SportsSeries/SXBJT 1010-min.jpg",
+        "Title": "SXBJT 1010# 运动休闲短裤",
+        "Price": "7.00",
+        "Optional_Color": "2"
+      },
+      {
+        "Id": "2",
+        "Category_ID": "WD 8810",
+        "Img": "../../static/SportsSeries/WD 8810-min.jpg",
+        "Title": "WD 8810# 运动短裤",
+        "Price": "8.50",
+        "Optional_Color": "4"
+      },{
+        "Id": "3",
+        "Category_ID": "WD 8805",
+        "Img": "../../static/SportsSeries/WD 8805-min.jpg",
+        "Title": "WD 8805# 绝不套路系列运动短裤",
+        "Price": "13.50",
+        "Optional_Color": "7"
+      },{
+        "Id": "4",
+        "Category_ID": "WD 6012/605",
+        "Img": "../../static/SportsSeries/WD 6012605-min.jpg",
+        "Title": "WD 6012/605# 金光绒长裤 （当天下单隔天发）",
+        "Price": "16.50",
+        "Optional_Color": "5"
+      },{
+        "Id": "5",
+        "Category_ID": "WD 6017/603",
+        "Img": "../../static/SportsSeries/WD 6017603-min.jpg",
+        "Title": "WD 6017/603# 口袋拉链窄脚长裤 （当天下单隔天发）",
+        "Price": "15.50",
+        "Optional_Color": "4"
+      },{
+        "Id": "6",
+        "Category_ID": "WD 1870",
+        "Img": "../../static/SportsSeries/WD 1870-min.jpg",
+        "Title": "WD 1870# 中国风之云从龙篮球服",
+        "Price": "19.80",
+        "Optional_Color": "5"
+      },{
+        "Id": "7",
+        "Category_ID": "XBYG 831",
+        "Img": "../../static/SportsSeries/XBYG 831-min.jpg",
+        "Title": "XBYG 831# 童款篮球服套装",
+        "Price": "19.00",
+        "Optional_Color": "8"
+      },{
+        "Id": "8",
+        "Category_ID": "XBYG 827",
+        "Img": "../../static/SportsSeries/XBYG 827-min.jpg",
+        "Title": "XBYG 827# 童款篮球服套装",
+        "Price": "19.00",
+        "Optional_Color": "10"
+      }
+    ],
+    "ActivitySeries": [
+      {
+        "Id": "1",
+        "Category_ID": "TXXS 对抗服",
+        "Img": "../../static/ActivitySeries/TXXS 对抗服-min.jpg",
+        "Title": "TXXS 对抗服# 儿童+成人",
+        "Price": "4.00",
+        "Optional_Color": "12"
+      },
+      {
+        "Id": "2",
+        "Category_ID": "XBAG M301",
+        "Img": "../../static/ActivitySeries/XBAG M301-min.jpg",
+        "Title": "XBAG M301# 凌形格复合单层马甲",
+        "Price": "10.00",
+        "Optional_Color": "6"
+      },{
+        "Id": "3",
+        "Category_ID": "WH VM002",
+        "Img": "../../static/ActivitySeries/WH VM002-min.jpg",
+        "Title": "WH VM002# 平角马甲",
+        "Price": "10.00",
+        "Optional_Color": "7"
+      },{
+        "Id": "4",
+        "Category_ID": "HBT 4405",
+        "Img": "../../static/ActivitySeries/HBT 4405-min.jpg",
+        "Title": "HBT 4405#插色马甲",
+        "Price": "12.50",
+        "Optional_Color": "5"
+      },{
+        "Id": "5",
+        "Category_ID": "SHZC ZC006",
+        "Img": "../../static/ActivitySeries/SHZC ZC006-min.jpg",
+        "Title": "SHZC ZC006# 反光条防水单层复合马甲",
+        "Price": "14.00",
+        "Optional_Color": "6"
+      },{
+        "Id": "6",
+        "Category_ID": "ZT 602",
+        "Img": "../../static/ActivitySeries/ZT 602-min.jpg",
+        "Title": "ZT 602# 复合长袖风衣350克",
+        "Price": "22.00",
+        "Optional_Color": "6"
+      },{
+        "Id": "7",
+        "Category_ID": "ZJBS 1603",
+        "Img": "../../static/ActivitySeries/ZJBS 1603-min.jpg",
+        "Title": "ZJBS 1603# 经典性价比之王#皮肤风衣",
+        "Price": "29.00",
+        "Optional_Color": "15"
+      },{
+        "Id": "8",
+        "Category_ID": "MST 201",
+        "Img": "../../static/ActivitySeries/MST 201-min.jpg",
+        "Title": "MST 201# 春夏薄款防紫外线皮肤衣",
+        "Price": "28.00",
+        "Optional_Color": "12"
+      },{
+        "Id": "9",
+        "Category_ID": "ZDQQ 7619",
+        "Img": "../../static/ActivitySeries/ZDQQ 7619-min.jpg",
+        "Title": "ZDQQ 7619# 纯色立领风衣（1-4天发货）",
+        "Price": "43.00",
+        "Optional_Color": "7"
+      }
+    ],
+    "OutdoorSeries": [
+      {
+        "Id": "1",
+        "Category_ID": "SDCY 秋冬季冲锋衣",
+        "Img": "../../static/OutdoorSeries/SDCY 秋冬季冲锋衣-min.jpg",
+        "Title": "SDCY 秋冬季冲锋衣",
+        "Price": "30.00",
+        "Optional_Color": "4"
+      },
+      {
+        "Id": "2",
+        "Category_ID": "FZKF 313",
+        "Img": "../../static/OutdoorSeries/FZKF 313-min.jpg",
+        "Title": "FZKF 313# 软壳单层冲锋衣",
+        "Price": "79.00",
+        "Optional_Color": "5"
+      },{
+        "Id": "3",
+        "Category_ID": "ZJBS 3004",
+        "Img": "../../static/OutdoorSeries/ZJBS 3004-min.jpg",
+        "Title": "ZJBS 3004# 情侣软壳冲锋衣 男款",
+        "Price": "100.00",
+        "Optional_Color": "4"
+      },{
+        "Id": "4",
+        "Category_ID": "ZJBS 9002",
+        "Img": "../../static/OutdoorSeries/ZJBS 9002-min.jpg",
+        "Title": "ZJBS 9002# 情侣摇粒绒内胆冲锋衣",
+        "Price": "100.00",
+        "Optional_Color": "18"
+      },{
+        "Id": "5",
+        "Category_ID": "ZZLX 991202",
+        "Img": "../../static/OutdoorSeries/ZZLX 991202-min.jpg",
+        "Title": "ZZLX 991202# 成人三合一冲锋衣",
+        "Price": "120.00",
+        "Optional_Color": "11"
+      },{
+        "Id": "6",
+        "Category_ID": "SHZC 7705",
+        "Img": "../../static/OutdoorSeries/SHZC 7705-min.jpg",
+        "Title": "SHZC 7705# 泰森狼全热封压胶三合一冲锋衣",
+        "Price": "130.00",
+        "Optional_Color": "5"
+      },{
+        "Id": "7",
+        "Category_ID": "MST 814",
+        "Img": "../../static/OutdoorSeries/MST 814-min.jpg",
+        "Title": "MST 814# 反光可拆卸冲锋衣",
+        "Price": "143.00",
+        "Optional_Color": "4"
+      },{
+        "Id": "8",
+        "Category_ID": "ZZLX 80889",
+        "Img": "../../static/OutdoorSeries/ZZLX 80889-min.jpg",
+        "Title": "ZZLX 80889# 三合一冲锋衣",
+        "Price": "146.00",
+        "Optional_Color": "10"
+      }
+    ]
+  }
+}

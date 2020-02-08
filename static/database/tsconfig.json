@@ -1,0 +1,348 @@
+{
+  "code": 0,
+  "msg:" : "string",
+  "result": {
+    "HL6880": [
+      {
+        "id": "1",
+        "styleId": "HL 6880",
+        "styleName": "陶瓷桑蚕丝POLO",
+        "colorId": "浅蓝",
+        "colorNumber": "#66cbff",
+        "img": "../../../static/ClassifyImg/HL6880/浅蓝色.jpg",
+        "price": "28.00",
+        "wareHouse": "新百佳仓库",
+        "deadline": "20:00",
+        "sizeStock": [
+          {
+            "id": 1,
+            "size": "S",
+            "stock": 500,
+            "price": 28.00,
+            "addValue": 0
+          }, {
+            "id": 2,
+            "size": "M",
+            "stock": 600,
+            "price": 28.00,
+            "addValue": 0
+          }, {
+            "id": 3,
+            "size": "L",
+            "stock": 700,
+            "price": 28.00,
+            "addValue": 0
+          }, {
+            "id": 4,
+            "size": "XL",
+            "stock": 450,
+            "price": 28.00,
+            "addValue": 0
+          }, {
+            "id": 5,
+            "size": "2XL",
+            "stock": 420,
+            "price": 28.00,
+            "addValue": 0
+          }, {
+            "id": 6,
+            "size": "3XL",
+            "stock": 300,
+            "price": 28.00,
+            "addValue": 0
+          }, {
+            "id": 7,
+            "size": "4XL",
+            "stock": 230,
+            "price": 28.00,
+            "addValue": 0
+          }
+        ]
+      },{
+        "id": "2",
+        "styleId": "HL 6880",
+        "styleName": "陶瓷桑蚕丝POLO",
+        "colorId": "彩兰",
+        "colorNumber": "#0099ff",
+        "img": "../../../static/ClassifyImg/HL6880/彩兰.jpg",
+        "price": "28.00",
+        "wareHouse": "新百佳仓库",
+        "deadline": "20:00",
+        "sizeStock": [
+          {
+            "id": 1,
+            "size": "S",
+            "stock": 500,
+            "price": 28.00,
+            "addValue": 0
+          }, {
+            "id": 2,
+            "size": "M",
+            "stock": 600,
+            "price": 28.00,
+            "addValue": 0
+          }, {
+            "id": 3,
+            "size": "L",
+            "stock": 700,
+            "price": 28.00,
+            "addValue": 0
+          }, {
+            "id": 4,
+            "size": "XL",
+            "stock": 450,
+            "price": 28.00,
+            "addValue": 0
+          }, {
+            "id": 5,
+            "size": "2XL",
+            "stock": 420,
+            "price": 28.00,
+            "addValue": 0
+          }
+        ]
+      },{
+        "id": "3",
+        "styleId": "HL 6880",
+        "styleName": "陶瓷桑蚕丝POLO",
+        "colorId": "果绿",
+        "colorNumber": "#cbfe33",
+        "img": "../../../static/ClassifyImg/HL6880/果绿.jpg",
+        "price": "28.00",
+        "wareHouse": "新百佳仓库",
+        "deadline": "20:00"
+      },{
+        "id": "4",
+        "styleId": "HL 6880",
+        "styleName": "陶瓷桑蚕丝POLO",
+        "colorId": "紫色",
+        "colorNumber": "#9900cc",
+        "img": "../../../static/ClassifyImg/HL6880/紫色.jpg",
+        "price": "28.00",
+        "wareHouse": "新百佳仓库",
+        "deadline": "20:00"
+      },{
+        "id": "5",
+        "styleId": "HL 6880",
+        "styleName": "陶瓷桑蚕丝POLO",
+        "colorId": "黑色",
+        "colorNumber": "#000000",
+        "img": "../../../static/ClassifyImg/HL6880/黑色.jpg",
+        "price": "28.00",
+        "wareHouse": "新百佳仓库",
+        "deadline": "20:00"
+      },{
+        "id": "6",
+        "styleId": "HL 6880",
+        "styleName": "陶瓷桑蚕丝POLO",
+        "colorId": "梅红",
+        "colorNumber": "#ff0066",
+        "img": "../../../static/ClassifyImg/HL6880/梅红.jpg",
+        "price": "28.00",
+        "wareHouse": "新百佳仓库",
+        "deadline": "20:00"
+      },{
+        "id": "7",
+        "styleId": "HL 6880",
+        "styleName": "陶瓷桑蚕丝POLO",
+        "colorId": "桔红",
+        "colorNumber": "#ff6600",
+        "img": "../../../static/ClassifyImg/HL6880/桔红.jpg",
+        "price": "28.00",
+        "wareHouse": "新百佳仓库",
+        "deadline": "20:00"
+      },{
+        "id": "8",
+        "styleId": "HL 6880",
+        "styleName": "陶瓷桑蚕丝POLO",
+        "colorId": "花灰",
+        "colorNumber": "#d7d7d7",
+        "img": "../../../static/ClassifyImg/HL6880/花灰.jpg",
+        "price": "28.00",
+        "wareHouse": "新百佳仓库",
+        "deadline": "20:00"
+      },{
+        "id": "9",
+        "styleId": "HL 6880",
+        "styleName": "陶瓷桑蚕丝POLO",
+        "colorId": "大红",
+        "colorNumber": "#cc0001",
+        "img": "../../../static/ClassifyImg/HL6880/大红.jpg",
+        "price": "28.00",
+        "wareHouse": "新百佳仓库",
+        "deadline": "20:00"
+      },{
+        "id": "10",
+        "styleId": "HL 6880",
+        "styleName": "陶瓷桑蚕丝POLO",
+        "colorId": "白色",
+        "colorNumber": "#ffffff",
+        "img": "../../../static/ClassifyImg/HL6880/白色.jpg",
+        "price": "28.00",
+        "wareHouse": "新百佳仓库",
+        "deadline": "20:00"
+      },{
+        "id": "11",
+        "styleId": "HL 6880",
+        "styleName": "陶瓷桑蚕丝POLO",
+        "colorId": "灰蓝",
+        "colorNumber": "#003466",
+        "img": "../../../static/ClassifyImg/HL6880/灰蓝.jpg",
+        "price": "28.00",
+        "wareHouse": "新百佳仓库",
+        "deadline": "20:00"
+      },{
+        "id": "12",
+        "styleId": "HL 6880",
+        "styleName": "陶瓷桑蚕丝POLO",
+        "colorId": "藏蓝",
+        "colorNumber": "#0f243f",
+        "img": "../../../static/ClassifyImg/HL6880/藏蓝.jpg",
+        "price": "28.00",
+        "wareHouse": "新百佳仓库",
+        "deadline": "20:00"
+      },{
+        "id": "13",
+        "styleId": "HL 6880",
+        "styleName": "陶瓷桑蚕丝POLO",
+        "colorId": "宝蓝",
+        "colorNumber": "#0000fe",
+        "img": "../../../static/ClassifyImg/HL6880/宝蓝.jpg",
+        "price": "28.00",
+        "wareHouse": "新百佳仓库",
+        "deadline": "20:00"
+      }
+    ],
+    "HL6880Details": [
+      {
+        "id": 1,
+        "detailsImg": "../../../static/ClassifyImg/HL6880/HL6880details/sizetable.jpg"
+      },{
+        "id": 2,
+        "detailsImg": "../../../static/ClassifyImg/HL6880/HL6880details/HL6880show1.jpg"
+      },{
+        "id": 3,
+        "detailsImg": "../../../static/ClassifyImg/HL6880/HL6880details/HL6880show2.jpg"
+      },{
+        "id": 4,
+        "detailsImg": "../../../static/ClassifyImg/HL6880/HL6880details/HL6880show3.jpg"
+      },{
+        "id": 5,
+        "detailsImg": "../../../static/ClassifyImg/HL6880/HL6880details/HL6880show4.jpg"
+      },{
+        "id": 6,
+        "detailsImg": "../../../static/ClassifyImg/HL6880/HL6880details/HL6880show5.jpg"
+      },{
+        "id": 7,
+        "detailsImg": "../../../static/ClassifyImg/HL6880/HL6880details/HL6880show6.jpg"
+      },{
+        "id": 8,
+        "detailsImg": "../../../static/ClassifyImg/HL6880/HL6880details/HL6880show7.jpg"
+      },{
+        "id": 9,
+        "detailsImg": "../../../static/ClassifyImg/HL6880/HL6880details/HL6880show8.jpg"
+      },{
+        "id": 10,
+        "detailsImg": "../../../static/ClassifyImg/HL6880/HL6880details/HL6880show9.jpg"
+      },{
+        "id": 11,
+        "detailsImg": "../../../static/ClassifyImg/HL6880/HL6880details/HL6880show10.jpg"
+      },{
+        "id": 12,
+        "detailsImg": "../../../static/ClassifyImg/HL6880/HL6880details/HL6880show11.jpg"
+      },{
+        "id": 12,
+        "detailsImg": "../../../static/ClassifyImg/HL6880/HL6880details/HL6880show12.jpg"
+      },{
+        "id": 13,
+        "detailsImg": "../../../static/ClassifyImg/HL6880/HL6880details/carefulselection.jpg"
+      },{
+        "id": 14,
+        "detailsImg": "../../../static/ClassifyImg/HL6880/HL6880details/Shoppinginstructions.jpeg"
+      }
+    ],
+    "SGC9955": [
+      {
+        "id": "1",
+        "styleId": "SGC 9955",
+        "styleName": "陶瓷桑蚕丝翻领",
+        "colorId": "花灰",
+        "colorNumber": "#afafaf",
+        "img": "../../../static/ClassifyImg/SGC9955/花灰.jpg",
+        "price": "33.00",
+        "wareHouse": "新百佳仓库",
+        "deadline": "21:00"
+      },{
+        "id": "2",
+        "styleId": "SGC 9955",
+        "styleName": "陶瓷桑蚕丝翻领",
+        "colorId": "宝蓝",
+        "colorNumber": "#000098",
+        "img": "../../../static/ClassifyImg/SGC9955/宝蓝.jpg",
+        "price": "33.00",
+        "wareHouse": "新百佳仓库",
+        "deadline": "21:00"
+      },{
+        "id": "3",
+        "styleId": "SGC 9955",
+        "styleName": "陶瓷桑蚕丝翻领",
+        "colorId": "果绿",
+        "colorNumber": "#99ff32",
+        "img": "../../../static/ClassifyImg/SGC9955/果绿.jpg",
+        "price": "33.00",
+        "wareHouse": "新百佳仓库",
+        "deadline": "21:00"
+      },{
+        "id": "4",
+        "styleId": "SGC 9955",
+        "styleName": "陶瓷桑蚕丝翻领",
+        "colorId": "大红",
+        "colorNumber": "#cc0001",
+        "img": "../../../static/ClassifyImg/SGC9955/大红.jpg",
+        "price": "33.00",
+        "wareHouse": "新百佳仓库",
+        "deadline": "21:00"
+      },{
+        "id": "5",
+        "styleId": "SGC 9955",
+        "styleName": "陶瓷桑蚕丝翻领",
+        "colorId": "黑色",
+        "colorNumber": "#0f0f0f",
+        "img": "../../../static/ClassifyImg/SGC9955/黑色.jpg",
+        "price": "33.00",
+        "wareHouse": "新百佳仓库",
+        "deadline": "21:00"
+      },{
+        "id": "6",
+        "styleId": "SGC 9955",
+        "styleName": "陶瓷桑蚕丝翻领",
+        "colorId": "白色",
+        "colorNumber": "#ffffff",
+        "img": "../../../static/ClassifyImg/SGC9955/白色.jpg",
+        "price": "33.00",
+        "wareHouse": "新百佳仓库",
+        "deadline": "21:00"
+      },{
+        "id": "7",
+        "styleId": "SGC 9955",
+        "styleName": "陶瓷桑蚕丝翻领",
+        "colorId": "桔色",
+        "colorNumber": "#ff0066",
+        "img": "../../../static/ClassifyImg/SGC9955/桔色.jpg",
+        "price": "33.00",
+        "wareHouse": "新百佳仓库",
+        "deadline": "21:00"
+      },{
+        "id": "8",
+        "styleId": "SGC 9955",
+        "styleName": "陶瓷桑蚕丝翻领",
+        "colorId": "藏蓝",
+        "colorNumber": "#0f243f",
+        "img": "../../../static/ClassifyImg/SGC9955/藏蓝.jpg",
+        "price": "33.00",
+        "wareHouse": "新百佳仓库",
+        "deadline": "21:00"
+      }
+    ]
+  }
+}
