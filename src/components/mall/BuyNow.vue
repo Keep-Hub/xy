@@ -18,7 +18,7 @@
                     <van-grid-item v-for="(i, index) in goodsInfo"
                                    :key="index"
                                    class="selective-color-item"
-                                   @click="onclick(index, i.styleId)"
+                                   @click="onclick(index)"
                     >
                         <div class="active-color" v-bind:class="{activeColor : index === active}">
                             <p class="bg-color" :style={background:i.colorNumber}></p>
@@ -34,20 +34,20 @@
                     <span>单价</span>
                     <span style="float: right;width: 36%">购买数量</span>
                 </p>
-                <ul v-for="(i, index) in sizeStock" :key="index">
+                <ul v-for="(item, index) in sizeStock" :key="index">
                     <li class="yardage-inventory-info clear_fix">
-                        <span style="text-align: left">{{i.size}}</span>
-                        <span>{{i.stock}}</span>
-                        <span>{{i.price}}</span>
+                        <span style="text-align: left">{{item.size}}</span>
+                        <span>{{item.stock}}</span>
+                        <span>{{item.price}}</span>
                         <span style="float: right;width: 36%">
                             <van-stepper
-                                    v-model="i.addValue"
+                                    v-model="item.addValue"
                                     min="0"
-                                    :max="i.stock"
+                                    :max="item.stock"
                                     input-width="3rem"
                                     button-size="1.6rem"
                                     integer
-                                    @change="valueChange(i.addValue,index,i.size,i.price)"
+                                    @change="valueChange(item, index)"
                             />
                         </span>
                     </li>
@@ -88,49 +88,49 @@ export default {
   },
   watch: {
     '$route' (to, from) { // 监听路由是否变化
-      // this.onclick(0)
     }
   },
   methods: {
-    onclick (index, s) {
-      this.init(index, s)
+    onclick (index) {
       this.active = index
       this.colorId = this.goodsInfo[index].colorId
-      this.goodsInfo[0].sizeStock[1].amount = 2
-      console.log(this.goodsInfo[index].colorId)
+      this.sizeStock = this.goodsInfo[index].sizeStock
+      this.onClickGoods = this.goodsInfo[index].img
+      // console.log(this.goodsInfo[index].colorId)
     },
-    init (e, s) {
+    init (proCode) {
       this.$http.get('../../static/database/tsconfig.json').then(response => {
-        let info = s.replace(/\s*/g, '')
-        this.goodsInfo = response.data.result[info]
-        this.onClickGoods = response.data.result[info][e].img
-        this.sizeStock = response.data.result[info][e].sizeStock
+        let code = proCode.replace(/\s*/g, '')
+        this.goodsInfo = response.data.result[code]
+        this.onClickGoods = response.data.result[code][0].img
+        this.sizeStock = response.data.result[code][0].sizeStock
+        this.colorId = this.goodsInfo[0].colorId
       })
     },
-    valueChange (value, i, s, p) {
-      console.log(i + 'valueChange:' + value)
-      this.inspectArray(i, value, s, p)
+    valueChange (item, index) {
+      console.log('row=' + index + ',valueChange=' + item.addValue)
+      this.inspectArray(index, item.size, item.price, item.addValue)
       this.totalPrice()
     },
     totalPrice () {
-      const a = this.allArr
-      let c = 0
-      if (a !== undefined || a.length > 0) {
-        for (let i = 0; i < a.length; i++) {
-          let b = a[i].selectedSize
+      const totalArr = this.allArr
+      let result = 0
+      if (totalArr.length > 0) {
+        for (let i = 0; i < totalArr.length; i++) {
+          let b = totalArr[i].selectedSize
           if (b !== undefined || b.length > 0) {
             for (let j = 0; j < b.length; j++) {
-              c += a[i].selectedSize[j].price * a[i].selectedSize[j].amount
-              this.allPrice = c
+              result += totalArr[i].selectedSize[j].price * totalArr[i].selectedSize[j].amount
+              this.allPrice = result
             }
           }
         }
       }
       // console.log(this.allPrice)
     },
-    inspectArray (index, amount, size, price) {
-      /* // console.log(index, amount, size, price)
-      let addA = {
+    inspectArray (rowIndex, size, price, amount) {
+      console.log(rowIndex, size, price, amount)
+      let addColor = {
         colorName: this.colorId,
         selectedSize: [
           {
@@ -140,30 +140,55 @@ export default {
           }
         ]
       }
+      let newSize = {
+        sizeName: size,
+        price: price,
+        amount: amount
+      }
       if (this.allArr.length > 0) {
-        if (this.checkColor(this.colorId) > 0) {
+        let colorIndex = this.checkColor(this.colorId)
+        let sizeIndex = this.checkSize(size)
+        if (colorIndex > 0) {
+          if (sizeIndex > 0) {
+            console.log('改变数量')
+            // this.allArr[colorIndex - 1].selectedSize[sizeIndex - 1].amount = amount
+          } else {
+            console.log(this.colorId + '添加新尺码')
+            this.allArr[colorIndex - 1].selectedSize.push(newSize)
+          }
           console.log('颜色存在了' + this.colorId)
         } else {
           console.log('添加新颜色')
+          this.allArr.push(addColor)
         }
       } else {
-        this.allArr.push(addA)
+        this.allArr.push(addColor)
       }
       console.log(this.allArr)
-      console.log(this.allArr.length) */
     },
     checkColor (color) {
-      let a = false
+      let result = false
       for (let i = 0; i < this.allArr.length; i++) {
         if (this.allArr[i].colorName === color) {
-          a = i + 1
+          result = i + 1
         }
       }
-      return a
+      return result
+    },
+    checkSize (size) {
+      let result = false
+      for (let i = 0; i < this.allArr.length; i++) {
+        for (let j = 0; j < this.allArr[i].selectedSize.length; j++) {
+          if (this.allArr[i].selectedSize[j].sizeName === size) {
+            result = j + 1
+          }
+        }
+      }
+      return result
     }
   },
   mounted () {
-    this.init(0, this.$route.query.categoryid)
+    this.init(this.$route.query.categoryid)
   }
 }
 </script>
