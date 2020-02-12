@@ -1,11 +1,11 @@
 <template>
   <div id="app">
     <transition :name="'vux-pop-' + (direction === 'forward' ? 'in' : 'out')">
-      <keep-alive>
+      <keep-alive v-if="$route.meta.keepAlive">
         <router-view v-if="isRouterAlive"></router-view>
       </keep-alive>
     </transition>
-    <van-tabbar v-model="active" v-if="tabbarShow" class="tabbar-img" @change="onChange">
+    <van-tabbar v-model="active" v-if="tabShow" class="tabbar-img" @change="onChange">
       <van-tabbar-item to="/Home">
         <span>首页</span>
         <img
@@ -54,7 +54,7 @@ export default {
   data () {
     return {
       isRouterAlive: true,
-      tabbarShow: true,
+      tabShow: true,
       active: 0,
       icon: {
         home1: '../static/TabbarImg/home1.png',
@@ -103,7 +103,7 @@ export default {
   watch: {
     $route (to, from) {
       if (to.path === '/Home' || to.path === '/Classify' || to.path === '/ShoppingCart' || to.path === '/Mines') {
-        this.tabbarShow = true
+        this.tabShow = true
         if (to.path === '/Home') { // 解决页面刷新 active无法选中
           this.active = 0
         } else if (to.path === '/Classify') {
@@ -114,7 +114,7 @@ export default {
           this.active = 3
         }
       } else {
-        this.tabbarShow = false
+        this.tabShow = false
       }
     }
   }

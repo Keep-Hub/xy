@@ -27,7 +27,11 @@ export default {
     }
   },
   components: {},
-  computed: {},
+  computed: {
+    students1: function () {
+      return this.sortKey(this.students, 'age')
+    }
+  },
   watch: {},
   created () {
   },

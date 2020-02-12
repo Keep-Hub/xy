@@ -28,36 +28,45 @@ export default new Router({
       path: '/',
       redirect: '/Home'
     }, {
+      name: 'Home',
       path: '/Home',
       component: Home,
       meta: { keepAlive: true, title: '广州服装批发网站-服装货源加盟-风衣-卫衣-T恤-POLO文化衫-工作服装厂-广州迅印科技有限公司' }
     }, {
+      name: 'Classify',
       path: '/Classify',
       component: Classify,
       meta: { keepAlive: true, title: '分类' }
     }, {
+      name: 'ShoppingCart',
       path: '/ShoppingCart',
       component: ShoppingCart,
       meta: { keepAlive: true, title: '购物车' }
     }, {
+      name: 'Mines',
       path: '/Mines',
       component: Mines,
       meta: { keepAlive: true, title: '我的' }
     }, {
+      name: 'Commodity',
       path: '/Commodity',
       component: Commodity,
       meta: { keepAlive: true, title: '商品详情' }
     }, {
+      name: 'Search',
       path: '/Search',
       component: Search,
       meta: { keepAlive: true, title: '搜索' }
     }, {
+      name: 'BuyNow',
       path: '/BuyNow',
       component: BuyNow,
       meta: { keepAlive: true, title: '商品详情' }
     }, {
+      name: 'Test',
       path: '/Test',
-      component: Test
+      component: Test,
+      meta: { keepAlive: true, title: '测试' }
     }
   ]
 })

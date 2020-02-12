@@ -6,14 +6,15 @@ import router from './router'
 import store from './store/'
 import Axios from 'axios'
 import './config/rem'
-import { Button, Swipe, SwipeItem, Tabbar, TabbarItem, Row, Col, Grid, GridItem, Divider, Lazyload, List, Cell, CellGroup, Image, ImagePreview, Sidebar, SidebarItem, IndexBar, IndexAnchor, Icon, GoodsAction, GoodsActionIcon, GoodsActionButton, Stepper, Sku, SubmitBar } from 'vant'
+import { Button, Swipe, SwipeItem, Tabbar, TabbarItem, Row, Col, Grid, GridItem, Divider, Lazyload, List, Cell, CellGroup, Image, ImagePreview, Sidebar, SidebarItem, IndexBar, IndexAnchor, Icon, GoodsAction, GoodsActionIcon, GoodsActionButton, Stepper, Sku, SubmitBar, Popup, Dialog, Checkbox, CheckboxGroup } from 'vant'
 /* 引入移动端手势库 */
 import directives from './directives/touch'
 directives(Vue)
 
 Vue.use(Button).use(Swipe).use(SwipeItem).use(Tabbar).use(TabbarItem).use(Row).use(Col).use(Grid).use(GridItem).use(Divider).use(Lazyload).use(List)
   .use(Cell).use(CellGroup).use(Image).use(ImagePreview).use(Sidebar).use(SidebarItem).use(IndexBar).use(IndexAnchor).use(Icon)
-  .use(GoodsAction).use(GoodsActionIcon).use(GoodsActionButton).use(Stepper).use(Sku).use(SubmitBar)
+  .use(GoodsAction).use(GoodsActionIcon).use(GoodsActionButton).use(Stepper).use(Sku).use(SubmitBar).use(Popup).use(Dialog).use(Checkbox)
+  .use(CheckboxGroup)
 Vue.use(Lazyload, {
   lazyComponent: true
 })

@@ -13,7 +13,7 @@
                 </van-col>
             </van-row>
             <div id="banner">
-                <van-swipe :autoplay="3000" :duration="1000" @change="onChange2" ref="swiper">
+                <van-swipe :autoplay="3000" :duration="1000" @change="onChange2">
                     <van-swipe-item v-for="(image, index) in list" :key="index">
                         <van-image  style="width: 100%;" :src="image.imgSrc" alt=""></van-image>
                     </van-swipe-item>
@@ -22,7 +22,7 @@
             <div id="clothes">
                 <van-grid :border="false" :column-num="4">
                     <van-grid-item v-for="(i, index) in clothes" :key="index" @click="toClassify(index)">
-                        <div style="width: 3.75rem; height: 3.75rem">
+                        <div style="width: 3.75rem; height: 3.75rem; margin: 0 auto">
                             <img width="100%" :src="i.img" alt="">
                         </div>
                         <p style="font-size: 12px;color: #7b7b7b">{{i.msg}}</p>
@@ -35,7 +35,7 @@
             <van-grid :border="false" :column-num="3">
                 <van-grid-item v-for="(i, index) in classclothes" :key="index">
                     <div @click="commodityDetails(i.Id, i.Category_ID)">
-                        <div style="width: 5.375rem; height: 5.375rem">
+                        <div class="pro-img">
                             <img width="100%" :src="i.Img" alt="">
                         </div>
                         <div>
@@ -52,7 +52,7 @@
             <van-grid :border="false" :column-num="3">
                 <van-grid-item v-for="(i, index) in WorkClothes" :key="index">
                     <div @click="commodityDetails(i.Id, i.Category_ID)">
-                        <div style="width: 5.375rem; height: 5.375rem">
+                        <div class="pro-img">
                             <img width="100%" :src="i.Img" alt="">
                         </div>
                         <div>
@@ -69,7 +69,7 @@
             <van-grid :border="false" :column-num="3">
                 <van-grid-item v-for="(i, index) in SportsSeries" :key="index">
                     <div @click="commodityDetails(i.Id, i.Category_ID)">
-                        <div style="width: 5.375rem; height: 5.375rem">
+                        <div class="pro-img">
                             <img width="100%" :src="i.Img" alt="">
                         </div>
                         <div>
@@ -86,7 +86,7 @@
             <van-grid :border="false" :column-num="3">
                 <van-grid-item v-for="(i, index) in ActivitySeries" :key="index">
                     <div @click="commodityDetails(i.Id, i.Category_ID)">
-                        <div style="width: 5.375rem; height: 5.375rem">
+                        <div class="pro-img">
                             <img width="100%" :src="i.Img" alt="">
                         </div>
                         <div>
@@ -103,7 +103,7 @@
             <van-grid :border="false" :column-num="3">
                 <van-grid-item v-for="(i, index) in OutdoorSeries" :key="index">
                     <div @click="commodityDetails(i.Id, i.Category_ID)">
-                        <div style="width: 5.375rem; height: 5.375rem">
+                        <div class="pro-img">
                             <img width="100%" :src="i.Img" alt="">
                         </div>
                         <div>
@@ -175,16 +175,12 @@ export default {
           id: Id
         }})
     },
-    gotoswiper (index) {
-      this.$refs.swiper.swipeTo(index)
-    },
-    commodityDetails (Id, CategoryID) {
-      // console.log(Id, CategoryID)
+    commodityDetails (Id, proId) {
       this.$router.push({
         path: '/Commodity',
         query: {
           id: Id,
-          categoryid: CategoryID
+          proId: proId
         }})
     }
   }
@@ -254,6 +250,9 @@ export default {
     }
     #clothes{
     }
+    .van-grid-item{
+        margin-bottom: 1rem;
+    }
     .van-grid-item__content{
         padding: 0.3rem .5rem;
     }
@@ -265,6 +264,11 @@ export default {
     h4{
         padding: 8px 8px;
         text-align: left;
+    }
+    .pro-img{
+        width: 5.375rem;
+        height: 5.375rem;
+        margin: 0 auto;
     }
     .optional-col{
         height: 12px;
@@ -279,6 +283,7 @@ export default {
         background-color: white;
     }
     .ov-hid{
+        width: 95%;
         text-align: left;
         overflow: hidden;
         text-overflow:ellipsis;

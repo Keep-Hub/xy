@@ -39,7 +39,7 @@
         </div>
         <div class="parameter">
             <ul>
-                <li style="font-size: 1rem;">商品参数</li>
+                <li @click="test()" style="font-size: 1rem;">商品参数</li>
                 <li>
                     <span>面料</span>
                     <span>陶瓷桑蚕丝</span>
@@ -63,7 +63,7 @@
                 <van-goods-action-icon icon="wap-home-o" to="/Home" text="首页"/>
                 <van-goods-action-icon icon="cart-o" to="/ShoppingCart" text="购物车" info="5"/>
                 <van-goods-action-icon icon="chat-o" text="客服" />
-                <van-goods-action-button type="warning" to="/ShoppingCart" text="加入购物车" />
+                <van-goods-action-button type="warning" text="加入购物车" @click="shoppingCart()" />
                 <van-goods-action-button color="#15a0ff" text="立即购买" @click="buyNow()"/>
             </van-goods-action>
         </div>
@@ -80,7 +80,6 @@ export default {
     return {
       goodsInfo: [],
       images,
-      newValue: this.$route.query.categoryid,
       iconLike: true,
       goodsDetails: []
     }
@@ -89,27 +88,24 @@ export default {
   computed: {},
   watch: {
     '$route' (to, from) { // 监听路由是否变化
-      this.reload()
-      if (to.path === '/Commodity') {
+      console.log(to.path)
+      if (to.path === '/Home') {
         this.$router.go(0)
-        this.newValue = this.$route.query.categoryid
-        this.init(this.newValue)
-      } else {
       }
     }
   },
   created () {
-    this.init(this.newValue)
   },
   mounted () {
+    this.init(this.$route.query.proId)
   },
   updated () {
     this.update()
   },
   methods: {
-    init (e) {
+    init (proId) {
       this.$http.get('../../static/database/tsconfig.json').then(response => {
-        let info = e.replace(/\s*/g, '')
+        let info = proId.replace(/\s*/g, '')
         this.goodsInfo = response.data.result[info]
         this.goodsDetails = response.data.result[info + 'Details']
       })
@@ -143,10 +139,20 @@ export default {
       this.$router.push({
         path: '/BuyNow',
         query: {
-          id: 1,
-          categoryid: this.goodsInfo[0].styleId,
-          activeimg: this.goodsInfo[0].img
+          proId: this.goodsInfo[0].styleId,
+          type: 1
         }})
+    },
+    shoppingCart () {
+      this.$router.push({
+        path: '/BuyNow',
+        query: {
+          proId: this.goodsInfo[0].styleId,
+          type: 0
+        }})
+    },
+    test () {
+      this.reload()
     }
   },
   destroy () {

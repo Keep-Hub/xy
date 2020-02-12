@@ -8,9 +8,9 @@
                             :src="onClickGoods"
                     />
                 </div>
-                <div style="float: left;padding: 0 0 0 1rem">
-                    <p style="margin-top: 1rem">HL 6880#陶瓷桑蚕丝POLO</p>
-                    <p style="margin-top: 0.3rem; font-size: 0.88rem">HL 6880</p>
+                <div style="float: left;padding: 0 0 0 1rem" v-for="(item, index) in this.goodsInfo.slice(0, 1)" :key="index">
+                    <p style="margin-top: 1rem">{{item.styleId}}#{{item.styleName}}</p>
+                    <p style="margin-top: 0.3rem; font-size: 0.88rem">{{item.styleId}}</p>
                 </div>
             </div>
             <div class="selective-color">
@@ -53,18 +53,39 @@
                     </li>
                 </ul>
             </div>
-        <div>{{allPrice}}</div>
-        <div @click="inspectArray()">计算总价</div>
-        <!--<div>
-            <van-submit-bar
-                    :price="3050"
-                    button-text="立即购买"
-                    @submit="onSubmit"
+            <div class="buy-now-bottom clear_fix">
+            <div class="total-pieces">
+                <p style="width: 36%;font-size: 0.9rem; text-align: center">
+                    <span>{{total}}</span>
+                    <span>件</span>
+                </p>
+                <p style="width: 64%; font-size: 1.2rem;color: #f80302;">
+                    <span>￥{{allPrice}}</span>
+                </p>
+            </div>
+            <van-popup
+                    v-model="show"
+                    closeable
+                    round
+                    position="bottom"
+                    :overlay="false"
+                    :style="{ height: 'auto', width: '100%', background: '#f9f9f9',marginBottom: '3rem',}"
             >
-                <span style="margin: 0 1rem"><span>2000</span>件</span>
-                <van-button plain type="danger" size="mini">已选清单</van-button>
-            </van-submit-bar>
-        </div>-->
+                <p v-if="this.allArr.length == 0" style="margin: 10px; font-size: 0.9rem;color: #666">您的清单中未有商品，请您添加商品至清单中！~~</p>
+                <div v-else v-for="(item, index) in this.allArr" :key="index" style="width:90%;margin: 0 10px">
+                    <span v-if="!item.selectedSize.length == 0">{{item.colorName}}</span>
+                    <span style="margin-left: 10px;font-size: 0.92rem" v-for="(i, index) in item.selectedSize" :key="index">
+                            <span>{{i.sizeName}} -</span>
+                            <span>{{i.amount}}</span>
+                        </span>
+                </div>
+            </van-popup>
+            <div class="bottom-button">
+                <van-button type="default" class="btn" @click="showPopup()">已选清单</van-button>
+                <van-button v-if="showType" type="info" class="btn" @click="buyNow()">立即购买</van-button>
+                <van-button v-else type="info" class="btn" @click="addCart()">加入购物车</van-button>
+            </div>
+        </div>
     </div>
 </template>
 
@@ -75,28 +96,37 @@ export default {
     return {
       goodsInfo: [],
       active: 0,
-      styleId: this.$route.query.categoryid,
-      onClickGoods: this.$route.query.activeimg,
+      styleId: this.$route.query.proId,
+      onClickGoods: '',
       sizeStock: [],
       allPrice: 0,
+      total: 0,
       colorId: '',
-      colorBoole: false,
-      allArr: []
+      allArr: [],
+      show: false,
+      showType: +this.$route.query.type
+
     }
   },
   created () {
   },
+  computed: {
+  },
+  components: {
+  },
   watch: {
     '$route' (to, from) { // 监听路由是否变化
+      if (to.path === '/Commodity') {
+        this.$router.go(0)
+      }
     }
   },
   methods: {
     onclick (index) {
-      this.active = index
+      this.active = index // 初始选中颜色设定为第一个
       this.colorId = this.goodsInfo[index].colorId
       this.sizeStock = this.goodsInfo[index].sizeStock
       this.onClickGoods = this.goodsInfo[index].img
-      // console.log(this.goodsInfo[index].colorId)
     },
     init (proCode) {
       this.$http.get('../../static/database/tsconfig.json').then(response => {
@@ -105,35 +135,42 @@ export default {
         this.onClickGoods = response.data.result[code][0].img
         this.sizeStock = response.data.result[code][0].sizeStock
         this.colorId = this.goodsInfo[0].colorId
+        this.onClickGoods = this.goodsInfo[0].img
       })
     },
-    valueChange (item, index) {
+    valueChange (item, index) { // 数量输入框的值改变执行的方法
       console.log('row=' + index + ',valueChange=' + item.addValue)
-      this.inspectArray(index, item.size, item.price, item.addValue)
+      this.inspectArray(index, item.size, item.price, item.addValue, item.id)
+      this.sizeSort()
       this.totalPrice()
+      this.delNullArr()
     },
-    totalPrice () {
-      const totalArr = this.allArr
-      let result = 0
+    totalPrice () { // 计算总价 和 总件数
+      let totalArr = this.allArr
+      let price = 0
+      let total = 0
       if (totalArr.length > 0) {
         for (let i = 0; i < totalArr.length; i++) {
-          let b = totalArr[i].selectedSize
-          if (b !== undefined || b.length > 0) {
-            for (let j = 0; j < b.length; j++) {
-              result += totalArr[i].selectedSize[j].price * totalArr[i].selectedSize[j].amount
-              this.allPrice = result
+          if (totalArr[i].selectedSize !== undefined || totalArr[i].selectedSize.length > 0) {
+            let sizeArr = totalArr[i].selectedSize
+            for (let j = 0; j < sizeArr.length; j++) {
+              price += sizeArr[j].price * sizeArr[j].amount
+              total += sizeArr[j].amount
+              this.allPrice = price
+              this.total = total
             }
           }
         }
       }
       // console.log(this.allPrice)
     },
-    inspectArray (rowIndex, size, price, amount) {
-      console.log(rowIndex, size, price, amount)
+    inspectArray (rowIndex, size, price, amount, sizeId) { // 添加购物清单
+      console.log(rowIndex, size, price, amount, sizeId)
       let addColor = {
         colorName: this.colorId,
         selectedSize: [
           {
+            id: sizeId,
             sizeName: size,
             price: price,
             amount: amount
@@ -141,32 +178,35 @@ export default {
         ]
       }
       let newSize = {
+        id: sizeId,
         sizeName: size,
         price: price,
         amount: amount
       }
-      if (this.allArr.length > 0) {
-        let colorIndex = this.checkColor(this.colorId)
-        let sizeIndex = this.checkSize(size)
+      if (this.allArr.length > 0) { // 当数组长度不为0时执行
+        let colorIndex = this.checkColor(this.colorId) // 传入颜色 检查是否存在该颜色
         if (colorIndex > 0) {
+          let sizeObject = this.allArr[colorIndex - 1].selectedSize // 传入尺码的数组入checkSize进行检查是否存在该码数
+          let sizeIndex = this.checkSize(size, sizeObject)
           if (sizeIndex > 0) {
-            console.log('改变数量')
-            // this.allArr[colorIndex - 1].selectedSize[sizeIndex - 1].amount = amount
+            console.log(this.colorId + '改变' + size + '数量为' + amount)
+            this.allArr[colorIndex - 1].selectedSize[sizeIndex - 1].amount = amount // 修改存在的尺码的数量
           } else {
-            console.log(this.colorId + '添加新尺码')
-            this.allArr[colorIndex - 1].selectedSize.push(newSize)
+            console.log(this.colorId + '添加新尺码' + size)
+            this.allArr[colorIndex - 1].selectedSize.push(newSize) // 尺码不存在 添加新的尺码
           }
-          console.log('颜色存在了' + this.colorId)
+          // console.log('颜色存在了' + this.colorId)
         } else {
-          console.log('添加新颜色')
-          this.allArr.push(addColor)
+          // console.log('添加新颜色')
+          if (amount > 0) { // 数量大于零时再添加新颜色
+            this.allArr.push(addColor)
+          }
         }
-      } else {
+      } else { // 数组为0时直接添加一个新的颜色
         this.allArr.push(addColor)
       }
-      console.log(this.allArr)
     },
-    checkColor (color) {
+    checkColor (color) { // 检查颜色方法
       let result = false
       for (let i = 0; i < this.allArr.length; i++) {
         if (this.allArr[i].colorName === color) {
@@ -175,24 +215,79 @@ export default {
       }
       return result
     },
-    checkSize (size) {
+    checkSize (size, object) { // 检查尺码方法
       let result = false
-      for (let i = 0; i < this.allArr.length; i++) {
-        for (let j = 0; j < this.allArr[i].selectedSize.length; j++) {
-          if (this.allArr[i].selectedSize[j].sizeName === size) {
-            result = j + 1
-          }
+      for (let j = 0; j < object.length; j++) {
+        if (object[j].sizeName === size) {
+          result = j + 1
         }
       }
       return result
-    }
+    },
+    delNullArr () { // 删除空数组
+      for (let i = 0; i < this.allArr.length; i++) {
+        if (this.allArr[i].selectedSize.length === 0) {
+          this.allArr.splice(i, 1)
+        } else {
+          for (let j = 0; j < this.allArr[i].selectedSize.length; j++) {
+            if (this.allArr[i].selectedSize[j].amount === 0) {
+              this.allArr[i].selectedSize.splice(j, 1)
+            }
+          }
+        }
+      }
+    },
+    sortKey (array, key) { // 排序规则方法
+      return array.sort(function (a, b) {
+        let x = a[key]
+        let y = b[key]
+        return ((x < y) ? -1 : (x > y) ? 1 : 0)
+      })
+    },
+    sizeSort () { // 排序方法
+      let a
+      for (let i = 0; i < this.allArr.length; i++) {
+        a = i
+      }
+      return this.sortKey(this.allArr[a].selectedSize, 'id')
+    },
+    showPopup () {
+      this.delNullArr()
+      this.show = !this.show
+    },
+    addCart () {
+      this.delNullArr()
+      if (this.allArr.length > 0) {
+        let code = this.styleId.replace(/\s*/g, '')
+        localStorage.setItem(code, JSON.stringify(this.allArr))
+        this.$dialog.confirm({
+          title: '提示',
+          message: '已加入购物车，是否前往结算！'
+        }).then(() => {
+          this.$router.push('/ShoppingCart')
+        }).catch(() => {
+          // on cancel
+        })
+      } else {
+        this.$dialog.alert({
+          message: '请先添加商品！'
+        }).then(() => {
+          // on close
+        })
+      }
+    },
+    buyNow () {}
   },
   mounted () {
-    this.init(this.$route.query.categoryid)
+    this.init(this.$route.query.proId)
   }
 }
 </script>
-
+<style scoped>
+    .van-button--normal {
+        padding: 0;
+    }
+</style>
 <style lang="less">
     *{
         margin: 0;
@@ -207,6 +302,7 @@ export default {
     background-size: 100% 100%;
     width: 100%;
     height:100%;
+    min-height: 29rem;
 }
     .selection-goods{
         padding: 15px;
@@ -244,6 +340,7 @@ export default {
     }
     .yardage-inventory{
         padding: 0 15px;
+        margin-bottom: 3rem;
     }
     .yardage-inventory-title span{
         display: inline-block;
@@ -261,5 +358,33 @@ export default {
         width: 20%;
         float: left;
         text-align: center;
+    }
+    .buy-now-bottom{
+        width: 100%;
+        height: 3rem;
+        position: fixed;
+        bottom: 0;
+        background-color: white;
+        z-index: 2002!important;
+    }
+    .buy-now-bottom > div{
+        width: 50%;
+        height: 3rem;
+        float: left;
+    }
+    .bottom-button{
+        background: #22b8ea;
+    }
+    .bottom-button > .btn{
+        height: 100%;
+        width: 50%;
+        float: left
+    }
+    .total-pieces{
+        border-top: 1px solid #efefef;
+    }
+    .total-pieces p{
+        float: left;
+        line-height: 3rem;
     }
 </style>
