@@ -7,6 +7,19 @@ const Mines = () => import('../components/Mines.vue')
 const Commodity = () => import('../components/mall/Commodity.vue')
 const Search = () => import('../components/mall/Search.vue')
 const BuyNow = () => import('../components/mall/BuyNow.vue')
+const Order = () => import('../components/mall/Order.vue')
+const MoreClothes = () => import('../components/mall/MoreClothes.vue')
+const Logon = () => import('../components/personal/Logon.vue')
+const Register = () => import('../components/personal/Register.vue')
+const forgetPwd = () => import('../components/personal/forgetPwd.vue')
+const AccountInfo = () => import('../components/personal/AccountInfo.vue')
+const AccountSecurity = () => import('../components/personal/AccountSecurity.vue')
+const Address = () => import('../components/personal/Address.vue')
+const CapitalFlow = () => import('../components/personal/CapitalFlow.vue')
+const PostSale = () => import('../components/personal/PostSale.vue')
+const MyCollection = () => import('../components/personal/MyCollection.vue')
+const addAddress = () => import('../components/personal/addAddress.vue')
+const addressEdit = () => import('../components/personal/addressEdit.vue')
 const Test = () => import('../components/Test.vue')
 
 Vue.use(Router)
@@ -41,12 +54,12 @@ export default new Router({
       name: 'ShoppingCart',
       path: '/ShoppingCart',
       component: ShoppingCart,
-      meta: { keepAlive: true, title: '购物车' }
+      meta: { keepAlive: true, title: '购物车', requireAuth: true }
     }, {
       name: 'Mines',
       path: '/Mines',
       component: Mines,
-      meta: { keepAlive: true, title: '我的' }
+      meta: { keepAlive: true, title: '个人中心' }
     }, {
       name: 'Commodity',
       path: '/Commodity',
@@ -61,7 +74,72 @@ export default new Router({
       name: 'BuyNow',
       path: '/BuyNow',
       component: BuyNow,
-      meta: { keepAlive: true, title: '商品详情' }
+      meta: { keepAlive: true, title: '商品详情', requireAuth: true }
+    }, {
+      name: 'Order',
+      path: '/Order',
+      component: Order,
+      meta: { keepAlive: true, title: '订单', requireAuth: true }
+    }, {
+      name: 'Logon',
+      path: '/Logon',
+      component: Logon,
+      meta: { keepAlive: true, title: '登录' }
+    }, {
+      name: 'Register',
+      path: '/Register',
+      component: Register,
+      meta: { keepAlive: true, title: '注册' }
+    }, {
+      name: 'forgetPwd',
+      path: '/forgetPwd',
+      component: forgetPwd,
+      meta: { keepAlive: true, title: '忘记密码' }
+    }, {
+      name: 'AccountInfo',
+      path: '/AccountInfo',
+      component: AccountInfo,
+      meta: { keepAlive: true, title: '账号信息', requireAuth: true }
+    }, {
+      name: 'AccountSecurity',
+      path: '/AccountSecurity',
+      component: AccountSecurity,
+      meta: { keepAlive: true, title: '账号安全', requireAuth: true }
+    }, {
+      name: 'Address',
+      path: '/Address',
+      component: Address,
+      meta: { keepAlive: true, title: '地址管理', requireAuth: true }
+    }, {
+      name: 'CapitalFlow',
+      path: '/CapitalFlow',
+      component: CapitalFlow,
+      meta: { keepAlive: true, title: '资金流水', requireAuth: true }
+    }, {
+      name: 'PostSale',
+      path: '/PostSale',
+      component: PostSale,
+      meta: { keepAlive: true, title: '售后记录', requireAuth: true }
+    }, {
+      name: 'MyCollection',
+      path: '/MyCollection',
+      component: MyCollection,
+      meta: { keepAlive: true, title: '我的收藏', requireAuth: true }
+    }, {
+      name: 'addAddress',
+      path: '/addAddress',
+      component: addAddress,
+      meta: { keepAlive: true, title: '添加地址', requireAuth: true }
+    }, {
+      name: 'addressEdit',
+      path: '/addressEdit',
+      component: addressEdit,
+      meta: { keepAlive: true, title: '修改地址', requireAuth: true }
+    }, {
+      name: 'MoreClothes',
+      path: '/MoreClothes',
+      component: MoreClothes,
+      meta: { keepAlive: true, title: '更多分类' }
     }, {
       name: 'Test',
       path: '/Test',

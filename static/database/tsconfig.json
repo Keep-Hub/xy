@@ -517,6 +517,704 @@
         "wareHouse": "新百佳仓库",
         "deadline": "21:00"
       }
+    ],
+    "SGC9955Details": [
+      {
+        "id": 1,
+        "detailsImg": "../../../static/ClassifyImg/HL6880/HL6880details/sizetable.jpg"
+      },{
+        "id": 2,
+        "detailsImg": "../../../static/ClassifyImg/HL6880/HL6880details/HL6880show1.jpg"
+      },{
+        "id": 3,
+        "detailsImg": "../../../static/ClassifyImg/HL6880/HL6880details/HL6880show2.jpg"
+      },{
+        "id": 4,
+        "detailsImg": "../../../static/ClassifyImg/HL6880/HL6880details/HL6880show3.jpg"
+      },{
+        "id": 5,
+        "detailsImg": "../../../static/ClassifyImg/HL6880/HL6880details/HL6880show4.jpg"
+      },{
+        "id": 6,
+        "detailsImg": "../../../static/ClassifyImg/HL6880/HL6880details/HL6880show5.jpg"
+      },{
+        "id": 7,
+        "detailsImg": "../../../static/ClassifyImg/HL6880/HL6880details/HL6880show6.jpg"
+      },{
+        "id": 8,
+        "detailsImg": "../../../static/ClassifyImg/HL6880/HL6880details/HL6880show7.jpg"
+      },{
+        "id": 9,
+        "detailsImg": "../../../static/ClassifyImg/HL6880/HL6880details/HL6880show8.jpg"
+      },{
+        "id": 10,
+        "detailsImg": "../../../static/ClassifyImg/HL6880/HL6880details/HL6880show9.jpg"
+      },{
+        "id": 11,
+        "detailsImg": "../../../static/ClassifyImg/HL6880/HL6880details/HL6880show10.jpg"
+      },{
+        "id": 12,
+        "detailsImg": "../../../static/ClassifyImg/HL6880/HL6880details/HL6880show11.jpg"
+      },{
+        "id": 12,
+        "detailsImg": "../../../static/ClassifyImg/HL6880/HL6880details/HL6880show12.jpg"
+      },{
+        "id": 13,
+        "detailsImg": "../../../static/ClassifyImg/HL6880/HL6880details/carefulselection.jpg"
+      },{
+        "id": 14,
+        "detailsImg": "../../../static/ClassifyImg/HL6880/HL6880details/Shoppinginstructions.jpeg"
+      }
+    ],
+    "QX902A": [
+      {
+      "id": "1",
+      "styleId": "QX 902A",
+      "styleName": "180g 成人速干",
+      "colorId": "白色",
+      "colorNumber": "#ffffff",
+      "img": "../../../static/ClassifyImg/QX902A/白色.jpg",
+      "price": "6.00",
+      "wareHouse": "新百佳仓库",
+      "deadline": "21:00",
+      "sizeStock": [
+        {
+          "id": 1,
+          "size": "S",
+          "stock": 500,
+          "price": 28.00,
+          "addValue": 0
+        }, {
+          "id": 2,
+          "size": "M",
+          "stock": 600,
+          "price": 28.00,
+          "addValue": 0
+        }, {
+          "id": 3,
+          "size": "L",
+          "stock": 700,
+          "price": 28.00,
+          "addValue": 0
+        }, {
+          "id": 4,
+          "size": "XL",
+          "stock": 450,
+          "price": 28.00,
+          "addValue": 0
+        }, {
+          "id": 5,
+          "size": "2XL",
+          "stock": 420,
+          "price": 28.00,
+          "addValue": 0
+        }, {
+          "id": 6,
+          "size": "3XL",
+          "stock": 300,
+          "price": 28.00,
+          "addValue": 0
+        }
+      ]
+    },
+      {
+        "id": "2",
+        "styleId": "QX 902A",
+        "styleName": "180g 成人速干",
+        "colorId": "孔蓝",
+        "colorNumber": "#0099ff",
+        "img": "../../../static/ClassifyImg/QX902A/孔蓝.jpg",
+        "price": "6.00",
+        "wareHouse": "新百佳仓库",
+        "deadline": "21:00",
+        "sizeStock": [
+          {
+            "id": 1,
+            "size": "S",
+            "stock": 500,
+            "price": 28.00,
+            "addValue": 0
+          }, {
+            "id": 2,
+            "size": "M",
+            "stock": 600,
+            "price": 28.00,
+            "addValue": 0
+          }, {
+            "id": 3,
+            "size": "L",
+            "stock": 700,
+            "price": 28.00,
+            "addValue": 0
+          }, {
+            "id": 4,
+            "size": "XL",
+            "stock": 450,
+            "price": 28.00,
+            "addValue": 0
+          }, {
+            "id": 5,
+            "size": "2XL",
+            "stock": 420,
+            "price": 28.00,
+            "addValue": 0
+          }, {
+            "id": 6,
+            "size": "3XL",
+            "stock": 300,
+            "price": 28.00,
+            "addValue": 0
+          }
+        ]
+      },
+      {
+        "id": "3",
+        "styleId": "QX 902A",
+        "styleName": "180g 成人速干",
+        "colorId": "橙色",
+        "colorNumber": "#ff9933",
+        "img": "../../../static/ClassifyImg/QX902A/橙色.jpg",
+        "price": "6.00",
+        "wareHouse": "新百佳仓库",
+        "deadline": "21:00",
+        "sizeStock": [
+          {
+            "id": 1,
+            "size": "S",
+            "stock": 500,
+            "price": 28.00,
+            "addValue": 0
+          }, {
+            "id": 2,
+            "size": "M",
+            "stock": 600,
+            "price": 28.00,
+            "addValue": 0
+          }, {
+            "id": 3,
+            "size": "L",
+            "stock": 700,
+            "price": 28.00,
+            "addValue": 0
+          }, {
+            "id": 4,
+            "size": "XL",
+            "stock": 450,
+            "price": 28.00,
+            "addValue": 0
+          }, {
+            "id": 5,
+            "size": "2XL",
+            "stock": 420,
+            "price": 28.00,
+            "addValue": 0
+          }, {
+            "id": 6,
+            "size": "3XL",
+            "stock": 300,
+            "price": 28.00,
+            "addValue": 0
+          }
+        ]
+      },
+      {
+        "id": "4",
+        "styleId": "QX 902A",
+        "styleName": "180g 成人速干",
+        "colorId": "果绿",
+        "colorNumber": "#ccff66",
+        "img": "../../../static/ClassifyImg/QX902A/果绿.jpg",
+        "price": "6.00",
+        "wareHouse": "新百佳仓库",
+        "deadline": "21:00",
+        "sizeStock": [
+          {
+            "id": 1,
+            "size": "S",
+            "stock": 500,
+            "price": 28.00,
+            "addValue": 0
+          }, {
+            "id": 2,
+            "size": "M",
+            "stock": 600,
+            "price": 28.00,
+            "addValue": 0
+          }, {
+            "id": 3,
+            "size": "L",
+            "stock": 700,
+            "price": 28.00,
+            "addValue": 0
+          }, {
+            "id": 4,
+            "size": "XL",
+            "stock": 450,
+            "price": 28.00,
+            "addValue": 0
+          }, {
+            "id": 5,
+            "size": "2XL",
+            "stock": 420,
+            "price": 28.00,
+            "addValue": 0
+          }, {
+            "id": 6,
+            "size": "3XL",
+            "stock": 300,
+            "price": 28.00,
+            "addValue": 0
+          }
+        ]
+      },
+      {
+        "id": "5",
+        "styleId": "QX 902A",
+        "styleName": "180g 成人速干",
+        "colorId": "粉色",
+        "colorNumber": "#ffccff",
+        "img": "../../../static/ClassifyImg/QX902A/粉色.jpg",
+        "price": "6.00",
+        "wareHouse": "新百佳仓库",
+        "deadline": "21:00",
+        "sizeStock": [
+          {
+            "id": 1,
+            "size": "S",
+            "stock": 500,
+            "price": 28.00,
+            "addValue": 0
+          }, {
+            "id": 2,
+            "size": "M",
+            "stock": 600,
+            "price": 28.00,
+            "addValue": 0
+          }, {
+            "id": 3,
+            "size": "L",
+            "stock": 700,
+            "price": 28.00,
+            "addValue": 0
+          }, {
+            "id": 4,
+            "size": "XL",
+            "stock": 450,
+            "price": 28.00,
+            "addValue": 0
+          }, {
+            "id": 5,
+            "size": "2XL",
+            "stock": 420,
+            "price": 28.00,
+            "addValue": 0
+          }, {
+            "id": 6,
+            "size": "3XL",
+            "stock": 300,
+            "price": 28.00,
+            "addValue": 0
+          }
+        ]
+      },
+      {
+        "id": "6",
+        "styleId": "QX 902A",
+        "styleName": "180g 成人速干",
+        "colorId": "宝蓝",
+        "colorNumber": "#00ffff",
+        "img": "../../../static/ClassifyImg/QX902A/宝蓝.jpg",
+        "price": "6.00",
+        "wareHouse": "新百佳仓库",
+        "deadline": "21:00",
+        "sizeStock": [
+          {
+            "id": 1,
+            "size": "S",
+            "stock": 500,
+            "price": 28.00,
+            "addValue": 0
+          }, {
+            "id": 2,
+            "size": "M",
+            "stock": 600,
+            "price": 28.00,
+            "addValue": 0
+          }, {
+            "id": 3,
+            "size": "L",
+            "stock": 700,
+            "price": 28.00,
+            "addValue": 0
+          }, {
+            "id": 4,
+            "size": "XL",
+            "stock": 450,
+            "price": 28.00,
+            "addValue": 0
+          }, {
+            "id": 5,
+            "size": "2XL",
+            "stock": 420,
+            "price": 28.00,
+            "addValue": 0
+          }, {
+            "id": 6,
+            "size": "3XL",
+            "stock": 300,
+            "price": 28.00,
+            "addValue": 0
+          }
+        ]
+      },
+      {
+        "id": "7",
+        "styleId": "QX 902A",
+        "styleName": "180g 成人速干",
+        "colorId": "黑色",
+        "colorNumber": "#0f0f0f",
+        "img": "../../../static/ClassifyImg/QX902A/黑色.jpg",
+        "price": "6.00",
+        "wareHouse": "新百佳仓库",
+        "deadline": "21:00",
+        "sizeStock": [
+          {
+            "id": 1,
+            "size": "S",
+            "stock": 500,
+            "price": 28.00,
+            "addValue": 0
+          }, {
+            "id": 2,
+            "size": "M",
+            "stock": 600,
+            "price": 28.00,
+            "addValue": 0
+          }, {
+            "id": 3,
+            "size": "L",
+            "stock": 700,
+            "price": 28.00,
+            "addValue": 0
+          }, {
+            "id": 4,
+            "size": "XL",
+            "stock": 450,
+            "price": 28.00,
+            "addValue": 0
+          }, {
+            "id": 5,
+            "size": "2XL",
+            "stock": 420,
+            "price": 28.00,
+            "addValue": 0
+          }, {
+            "id": 6,
+            "size": "3XL",
+            "stock": 300,
+            "price": 28.00,
+            "addValue": 0
+          }
+        ]
+      },
+      {
+        "id": "8",
+        "styleId": "QX 902A",
+        "styleName": "180g 成人速干",
+        "colorId": "红色",
+        "colorNumber": "#ff0033",
+        "img": "../../../static/ClassifyImg/QX902A/红色.jpg",
+        "price": "6.00",
+        "wareHouse": "新百佳仓库",
+        "deadline": "21:00",
+        "sizeStock": [
+          {
+            "id": 1,
+            "size": "S",
+            "stock": 500,
+            "price": 28.00,
+            "addValue": 0
+          }, {
+            "id": 2,
+            "size": "M",
+            "stock": 600,
+            "price": 28.00,
+            "addValue": 0
+          }, {
+            "id": 3,
+            "size": "L",
+            "stock": 700,
+            "price": 28.00,
+            "addValue": 0
+          }, {
+            "id": 4,
+            "size": "XL",
+            "stock": 450,
+            "price": 28.00,
+            "addValue": 0
+          }, {
+            "id": 5,
+            "size": "2XL",
+            "stock": 420,
+            "price": 28.00,
+            "addValue": 0
+          }, {
+            "id": 6,
+            "size": "3XL",
+            "stock": 300,
+            "price": 28.00,
+            "addValue": 0
+          }
+        ]
+      },
+      {
+        "id": "9",
+        "styleId": "QX 902A",
+        "styleName": "180g 成人速干",
+        "colorId": "黄色",
+        "colorNumber": "#ffff00",
+        "img": "../../../static/ClassifyImg/QX902A/黄色.jpg",
+        "price": "6.00",
+        "wareHouse": "新百佳仓库",
+        "deadline": "21:00",
+        "sizeStock": [
+          {
+            "id": 1,
+            "size": "S",
+            "stock": 500,
+            "price": 28.00,
+            "addValue": 0
+          }, {
+            "id": 2,
+            "size": "M",
+            "stock": 600,
+            "price": 28.00,
+            "addValue": 0
+          }, {
+            "id": 3,
+            "size": "L",
+            "stock": 700,
+            "price": 28.00,
+            "addValue": 0
+          }, {
+            "id": 4,
+            "size": "XL",
+            "stock": 450,
+            "price": 28.00,
+            "addValue": 0
+          }, {
+            "id": 5,
+            "size": "2XL",
+            "stock": 420,
+            "price": 28.00,
+            "addValue": 0
+          }, {
+            "id": 6,
+            "size": "3XL",
+            "stock": 300,
+            "price": 28.00,
+            "addValue": 0
+          }
+        ]
+      },
+      {
+        "id": "10",
+        "styleId": "QX 902A",
+        "styleName": "180g 成人速干",
+        "colorId": "玫红",
+        "colorNumber": "#ff66ff",
+        "img": "../../../static/ClassifyImg/QX902A/玫红.jpg",
+        "price": "6.00",
+        "wareHouse": "新百佳仓库",
+        "deadline": "21:00",
+        "sizeStock": [
+          {
+            "id": 1,
+            "size": "S",
+            "stock": 500,
+            "price": 28.00,
+            "addValue": 0
+          }, {
+            "id": 2,
+            "size": "M",
+            "stock": 600,
+            "price": 28.00,
+            "addValue": 0
+          }, {
+            "id": 3,
+            "size": "L",
+            "stock": 700,
+            "price": 28.00,
+            "addValue": 0
+          }, {
+            "id": 4,
+            "size": "XL",
+            "stock": 450,
+            "price": 28.00,
+            "addValue": 0
+          }, {
+            "id": 5,
+            "size": "2XL",
+            "stock": 420,
+            "price": 28.00,
+            "addValue": 0
+          }, {
+            "id": 6,
+            "size": "3XL",
+            "stock": 300,
+            "price": 28.00,
+            "addValue": 0
+          }
+        ]
+      },
+      {
+        "id": "11",
+        "styleId": "QX 902A",
+        "styleName": "180g 成人速干",
+        "colorId": "荧光绿",
+        "colorNumber": "#00ff00",
+        "img": "../../../static/ClassifyImg/QX902A/荧光绿.jpg",
+        "price": "6.00",
+        "wareHouse": "新百佳仓库",
+        "deadline": "21:00",
+        "sizeStock": [
+          {
+            "id": 1,
+            "size": "S",
+            "stock": 500,
+            "price": 28.00,
+            "addValue": 0
+          }, {
+            "id": 2,
+            "size": "M",
+            "stock": 600,
+            "price": 28.00,
+            "addValue": 0
+          }, {
+            "id": 3,
+            "size": "L",
+            "stock": 700,
+            "price": 28.00,
+            "addValue": 0
+          }, {
+            "id": 4,
+            "size": "XL",
+            "stock": 450,
+            "price": 28.00,
+            "addValue": 0
+          }, {
+            "id": 5,
+            "size": "2XL",
+            "stock": 420,
+            "price": 28.00,
+            "addValue": 0
+          }, {
+            "id": 6,
+            "size": "3XL",
+            "stock": 300,
+            "price": 28.00,
+            "addValue": 0
+          }
+        ]
+      },
+      {
+        "id": "12",
+        "styleId": "QX 902A",
+        "styleName": "180g 成人速干",
+        "colorId": "天蓝",
+        "colorNumber": "#66ffff",
+        "img": "../../../static/ClassifyImg/QX902A/天蓝.jpg",
+        "price": "6.00",
+        "wareHouse": "新百佳仓库",
+        "deadline": "21:00",
+        "sizeStock": [
+          {
+            "id": 1,
+            "size": "S",
+            "stock": 500,
+            "price": 28.00,
+            "addValue": 0
+          }, {
+            "id": 2,
+            "size": "M",
+            "stock": 600,
+            "price": 28.00,
+            "addValue": 0
+          }, {
+            "id": 3,
+            "size": "L",
+            "stock": 700,
+            "price": 28.00,
+            "addValue": 0
+          }, {
+            "id": 4,
+            "size": "XL",
+            "stock": 450,
+            "price": 28.00,
+            "addValue": 0
+          }, {
+            "id": 5,
+            "size": "2XL",
+            "stock": 420,
+            "price": 28.00,
+            "addValue": 0
+          }, {
+            "id": 6,
+            "size": "3XL",
+            "stock": 300,
+            "price": 28.00,
+            "addValue": 0
+          }
+        ]
+      }
+    ],
+    "QX902ADetails": [
+      {
+        "id": 1,
+        "detailsImg": "../../../static/ClassifyImg/HL6880/HL6880details/sizetable.jpg"
+      },{
+        "id": 2,
+        "detailsImg": "../../../static/ClassifyImg/HL6880/HL6880details/HL6880show1.jpg"
+      },{
+        "id": 3,
+        "detailsImg": "../../../static/ClassifyImg/HL6880/HL6880details/HL6880show2.jpg"
+      },{
+        "id": 4,
+        "detailsImg": "../../../static/ClassifyImg/HL6880/HL6880details/HL6880show3.jpg"
+      },{
+        "id": 5,
+        "detailsImg": "../../../static/ClassifyImg/HL6880/HL6880details/HL6880show4.jpg"
+      },{
+        "id": 6,
+        "detailsImg": "../../../static/ClassifyImg/HL6880/HL6880details/HL6880show5.jpg"
+      },{
+        "id": 7,
+        "detailsImg": "../../../static/ClassifyImg/HL6880/HL6880details/HL6880show6.jpg"
+      },{
+        "id": 8,
+        "detailsImg": "../../../static/ClassifyImg/HL6880/HL6880details/HL6880show7.jpg"
+      },{
+        "id": 9,
+        "detailsImg": "../../../static/ClassifyImg/HL6880/HL6880details/HL6880show8.jpg"
+      },{
+        "id": 10,
+        "detailsImg": "../../../static/ClassifyImg/HL6880/HL6880details/HL6880show9.jpg"
+      },{
+        "id": 11,
+        "detailsImg": "../../../static/ClassifyImg/HL6880/HL6880details/HL6880show10.jpg"
+      },{
+        "id": 12,
+        "detailsImg": "../../../static/ClassifyImg/HL6880/HL6880details/HL6880show11.jpg"
+      },{
+        "id": 12,
+        "detailsImg": "../../../static/ClassifyImg/HL6880/HL6880details/HL6880show12.jpg"
+      },{
+        "id": 13,
+        "detailsImg": "../../../static/ClassifyImg/HL6880/HL6880details/carefulselection.jpg"
+      },{
+        "id": 14,
+        "detailsImg": "../../../static/ClassifyImg/HL6880/HL6880details/Shoppinginstructions.jpeg"
+      }
     ]
   }
 }

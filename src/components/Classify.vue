@@ -2,30 +2,28 @@
     <div id="Classify">
         <div class="classify_left_sidebar">
             <van-sidebar v-model="activeKey" @change="scrollTo" style="width: 100%">
-                <van-sidebar-item title="T恤" />
-                <van-sidebar-item title="POLO" />
-                <van-sidebar-item title="卫衣卫裤" />
-                <van-sidebar-item title="风衣马甲" />
-                <van-sidebar-item title="职业装" />
-                <van-sidebar-item title="运动系列" />
-                <van-sidebar-item title="劳保服" />
-                <van-sidebar-item title="冲锋衣套装" />
-                <van-sidebar-item title="其他" />
-                <van-sidebar-item title="裤子" />
+                <van-sidebar-item v-for="(i, index) in allClothes" :key="index" :title="i.sortName" />
             </van-sidebar>
         </div>
         <div class="classify_right">
-            <div class="classify_right_main" @scroll="handleScroll()" ref="content">
-                <div class="info_main">T恤</div>
-                <div class="info_main">POLO</div>
-                <div class="info_main">卫衣卫裤</div>
-                <div class="info_main">风衣马甲</div>
-                <div class="info_main">职业装</div>
-                <div class="info_main">运动系列</div>
-                <div class="info_main">劳保服</div>
-                <div class="info_main">冲锋衣套装</div>
-                <div class="info_main">其他</div>
-                <div style="height: 750px" class="info_main">裤子</div>
+            <div class="classify_right_main" @scroll="handleScroll()" ref="content" >
+                <div class="info_main" v-for="(item, index) in allClothes" :key="index">
+                    <img :src="item.sortImg" alt="">
+                    <div style="padding: 0 .3rem; margin-bottom: .6rem" v-for="(sort, index) in item.sortClothes" :key="index">
+                        <p style="width: 100%; font-size: .96rem; margin: 0.5rem 0; font-weight: bolder; padding: 0 .3rem">
+                            {{sort.title}}
+                            <span style="float: right; font-size: 0.8rem; color: #7f7f7f; font-weight: lighter" @click="moreClothes()">更多</span>
+                        </p>
+                        <van-grid :border="false" :column-num="3" :gutter="10">
+                            <van-grid-item v-for="(i, index) in sort.clothes" :key="index" @click="commodityDetails(i.id, i.categoryId)">
+                                <div style="width: 4rem; height: 4rem; margin: 0 auto">
+                                    <img width="100%" :src="i.img" alt="">
+                                </div>
+                                <p style="font-size: 0.8rem;color: #515151; margin: 0.3rem 0;text-align: center">{{i.categoryId}}</p>
+                            </van-grid-item>
+                        </van-grid>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -39,7 +37,8 @@ export default {
       activeKey: this.$route.query.id,
       activeIndex: 0,
       indexList: [],
-      scrollTop: 0
+      scrollTop: 0,
+      allClothes: []
     }
   },
   components: {},
@@ -63,7 +62,7 @@ export default {
     },
     handleScroll () {
       // 获取所有锚点元素
-      const navContents = document.querySelectorAll('.classify_right_main div')
+      const navContents = document.querySelectorAll('.classify_right_main .info_main')
       // 所有锚点元素的 offsetTop
       const offsetTopArr = []
       navContents.forEach(item => {
@@ -71,7 +70,7 @@ export default {
       })
       // 获取当前文档流的 scrollTop
       const scrollTop = document.documentElement.scrollTop || document.body.scrollTop
-      console.log(document.documentElement.scrollTop || document.body.scrollTop)
+      // console.log(document.documentElement.scrollTop || document.body.scrollTop)
       // 定义当前点亮的导航下标
       let navIndex = 0
       for (let n = 0; n < offsetTopArr.length; n++) {
@@ -89,17 +88,15 @@ export default {
     scrollTo (index) {
       // 获取目标的 offsetTop
       // css选择器是从 1 开始计数，我们是从 0 开始，所以要 +1
-      const targetOffsetTop = document.querySelector(`.classify_right_main div:nth-child(${index + 1})`).offsetTop
+      const targetOffsetTop = document.querySelector(`.classify_right_main .info_main:nth-child(${index + 1})`).offsetTop
       // 获取当前 offsetTop
       let scrollTop = document.documentElement.scrollTop || document.body.scrollTop
-      // 定义一次跳 50 个像素，数字越大跳得越快，但是会有掉帧得感觉，步子迈大了会扯到蛋
-      const STEP = 30
+      // 定义一次跳 30 个像素，数字越大跳得越快，但是会有掉帧得感觉，步子迈大了会扯到蛋
+      const STEP = 50
       // 判断是往下滑还是往上滑
-      console.log('targetOffsetTop=' + targetOffsetTop)
-      console.log('scrollTop=' + scrollTop)
-      console.log(scrollTop > targetOffsetTop)
       if (scrollTop > targetOffsetTop) {
         // 往上滑
+        console.log(targetOffsetTop)
         smoothUp()
       } else {
         // 往下滑
@@ -136,14 +133,36 @@ export default {
           requestAnimationFrame(smoothUp)
         }
       }
+    },
+    moreClothes () {
+      this.$router.push({
+        path: '/MoreClothes',
+        query: {
+        }})
+    },
+    commodityDetails (Id, proId) {
+      this.$router.push({
+        path: '/Commodity',
+        query: {
+          id: Id,
+          proId: proId
+        }})
     }
   },
   mounted () {
     // 监听滚动事件
     window.addEventListener('scroll', this.handleScroll)
     this.timer = setTimeout(() => {
-      this.scrollTo((+this.$route.query.id))
+      if ((+this.$route.query.id) > 0) {
+        this.scrollTo((+this.$route.query.id))
+      } else {
+        this.scrollTo(0)
+      }
     }, 300)
+    this.$http.get('../../static/database/classify.json').then(response => {
+      this.allClothes = response.data.result.allClothes
+      console.log(this.allClothes[0].sortName)
+    })
   },
   destroy () {
     // 必须移除监听器，不然当该vue组件被销毁了，监听器还在就会出错
@@ -152,44 +171,54 @@ export default {
 }
 </script>
 
-<style lang="less" scoped>
-#Classify{
-    background: transparent;
-    background-size: 100% 100%;
-    width: 100%;
-    height:100%;
-    text-align: center;
-}
-.van-sidebar-item--select {
-    color: #323233;
-    border-color: #22b8ea;
-}
-.van-sidebar-item {
-    padding: 1rem 0.75rem 1rem 0.5rem;
-    overflow: hidden;
-    color: #323233;
-    font-size: 0.875rem;
-    line-height: 1rem;
-    text-align: left;
-    background-color: white;
-}
-.classify_left_sidebar{
-    width: 28%;
-    position: fixed
-}
-.classify_right{
-    width: 71%;
-    float: right;
-    border-left: 1px solid #b6a482;
-    height: 100%;
-}
-.classify_right_main{
-    overflow-y: visible;
-}
-.classify_right_main::-webkit-scrollbar {
-    display: none;
-}
-.info_main{
-    min-height: 300px;
-}
+<style scoped>
+    #Classify{
+        background: transparent;
+        background-size: 100% 100%;
+        width: 100%;
+        height:100%;
+    }
+    .van-sidebar-item--select {
+        color: #323233;
+        border-color: #22b8ea;
+    }
+    .van-sidebar-item {
+        padding: 1rem 0.75rem 1rem 0.5rem;
+        overflow: hidden;
+        color: #323233;
+        font-size: 0.875rem;
+        line-height: 1rem;
+        text-align: left;
+        background-color: white;
+    }
+    .classify_left_sidebar{
+        width: 28%;
+        position: fixed
+    }
+    .classify_right{
+        width: 71%;
+        float: right;
+        border-left: 1px solid #b6a482;
+        padding-bottom: 18rem;
+    }
+    .classify_right_main{
+        overflow-y: visible;
+    }
+    .classify_right_main::-webkit-scrollbar {
+        display: none;
+    }
+    .info_main{
+    }
+    .info_main > img{
+        width: 100%;
+    }
+</style>
+<style lang="less">
+    *{
+        padding: 0;
+        margin: 0;
+    }
+    .van-grid-item__content{
+        padding: .2rem 0;
+    }
 </style>

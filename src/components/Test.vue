@@ -1,6 +1,6 @@
 <template>
     <div id="Test">
-        <van-list
+        <!--<van-list
                 v-model="loading"
                 :finished="finished"
                 finished-text="没有更多了"
@@ -10,7 +10,17 @@
                 <p>{{i.color_id}}</p>
                 <img style="width: 100%" :src="i.img" alt="">
             </div>
-        </van-list>
+        </van-list>-->
+        <van-swipe-cell>
+            <template slot="left">
+                <van-button square type="primary" text="选择" />
+            </template>
+            <van-cell :border="false" title="单元格" value="内容" />
+            <template slot="right">
+                <van-button square type="danger" text="删除" />
+                <van-button square type="primary" text="收藏"/>
+            </template>
+        </van-swipe-cell>
     </div>
 </template>
 

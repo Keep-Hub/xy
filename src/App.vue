@@ -5,38 +5,18 @@
         <router-view v-if="isRouterAlive"></router-view>
       </keep-alive>
     </transition>
-    <van-tabbar v-model="active" v-if="tabShow" class="tabbar-img" @change="onChange">
-      <van-tabbar-item to="/Home">
-        <span>首页</span>
-        <img
-                slot="icon"
-                slot-scope="props"
-                :src="props.active ? icon.home1 : icon.home"
-        >
+    <van-tabbar v-model="active" v-if="tabShow"   @change="onChange">
+      <van-tabbar-item to="/" icon="wap-home-o">
+         首页
       </van-tabbar-item>
-      <van-tabbar-item to="/Classify">
-        <span>分类</span>
-        <img
-                slot="icon"
-                slot-scope="props"
-                :src="props.active ? icon.classify1 : icon.classify"
-        >
+      <van-tabbar-item to="/Classify" icon="apps-o">
+        分类
       </van-tabbar-item>
-      <van-tabbar-item to="/ShoppingCart">
-      <span>购物车</span>
-      <img
-              slot="icon"
-              slot-scope="props"
-              :src="props.active ? icon.cart1 : icon.cart"
-      >
+      <van-tabbar-item to="/ShoppingCart" icon="shopping-cart-o">
+       购物车
     </van-tabbar-item>
-      <van-tabbar-item to="Mines">
-      <span>我的</span>
-      <img
-              slot="icon"
-              slot-scope="props"
-              :src="props.active ? icon.me1 : icon.me"
-      >
+      <van-tabbar-item to="/Mines" icon="user-o">
+      我的
     </van-tabbar-item>
     </van-tabbar>
   </div>
@@ -55,17 +35,7 @@ export default {
     return {
       isRouterAlive: true,
       tabShow: true,
-      active: 0,
-      icon: {
-        home1: '../static/TabbarImg/home1.png',
-        home: '../static/TabbarImg/home.png',
-        classify1: '../static/TabbarImg/classify1.png',
-        classify: '../static/TabbarImg/classify.png',
-        cart1: '../static/TabbarImg/cart1.png',
-        cart: '../static/TabbarImg/cart.png',
-        me1: '../static/TabbarImg/me1.png',
-        me: '../static/TabbarImg/me.png'
-      }
+      active: 0
     }
   },
   components: {
@@ -164,8 +134,4 @@ export default {
 }
 </style>
 <style lang="less">
-  .tabbar-img img{
-    width: 1.5rem;
-    height: 1.5rem;
-  }
 </style>

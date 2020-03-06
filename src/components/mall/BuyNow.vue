@@ -69,9 +69,9 @@
                     round
                     position="bottom"
                     :overlay="false"
-                    :style="{ height: 'auto', width: '100%', background: '#f9f9f9',marginBottom: '3rem',}"
+                    :style="{ height: 'auto', width: '100%', background: '#f9f9f9',marginBottom: '3rem',padding: '0.5rem'}"
             >
-                <p v-if="this.allArr.length == 0" style="margin: 10px; font-size: 0.9rem;color: #666">您的清单中未有商品，请您添加商品至清单中！~~</p>
+                <p v-if="this.allArr.length === 0" style="margin: 10px; font-size: 0.9rem;color: #666">您的清单中未有商品，请您添加商品至清单中！~~</p>
                 <div v-else v-for="(item, index) in this.allArr" :key="index" style="width:90%;margin: 0 10px">
                     <span v-if="!item.selectedSize.length == 0">{{item.colorName}}</span>
                     <span style="margin-left: 10px;font-size: 0.92rem" v-for="(i, index) in item.selectedSize" :key="index">
@@ -256,6 +256,7 @@ export default {
       this.show = !this.show
     },
     addCart () {
+      console.log(this.allArr)
       this.delNullArr()
       if (this.allArr.length > 0) {
         let code = this.styleId.replace(/\s*/g, '')

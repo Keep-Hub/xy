@@ -55,7 +55,7 @@
         "msg": "冲锋衣套装"
       }
     ],
-    "classclothes": [
+    "classClothes": [
       {
         "Id": "1",
         "Category_ID": "HL 6880",

@@ -6,13 +6,13 @@
                     <van-image width="100%" @click="showImagePreview(index)"  :src="image.img" alt=""></van-image>
                 </van-swipe-item>
             </van-swipe>
-            <div v-for="(c , index) in goodsInfo.slice(0, 1)" :key="index" style="text-align: left;">
+            <div v-for="(clothes , index) in goodsInfo.slice(0, 1)" :key="index" style="text-align: left;">
                 <div style="padding: 0 20px">
-                    <p>{{c.styleId}}#{{c.styleName}}</p>
-                    <p style="font-size: 0.88rem; margin: 10px 0">{{c.styleId}}</p>
+                    <p>{{clothes.styleId}}#{{clothes.styleName}}</p>
+                    <p style="font-size: 0.88rem; margin: 10px 0">{{clothes.styleId}}</p>
                 </div>
                 <van-row class="price_info">
-                    <van-col span="12" class="price">￥{{c.price}}</van-col>
+                    <van-col span="12" class="price">￥{{clothes.price}}</van-col>
                     <van-col span="12">
                         <van-row  style="text-align: center;">
                             <van-col span="9">
@@ -23,7 +23,7 @@
                                 <van-icon name="photo-o" size="1.6rem"/>
                                 <p>下载图片</p>
                             </van-col>
-                            <van-col span="6" @click="clickIcon()">
+                            <van-col span="6" @click="clickIcon(clothes)">
                                 <van-icon v-if="iconLike" name="like-o" size="1.6rem"/>
                                 <van-icon v-else name="like" size="1.6rem"  color="red"/>
                                 <p>收藏</p>
@@ -32,8 +32,8 @@
                     </van-col>
                 </van-row>
                 <div class="warehouse">
-                    <p>仓库:{{c.wareHouse}}</p>
-                    <p style="color: red;">截止时间:{{c.deadline}}</p>
+                    <p>仓库:{{clothes.wareHouse}}</p>
+                    <p style="color: red;">截止时间:{{clothes.deadline}}</p>
                 </div>
             </div>
         </div>
@@ -89,7 +89,7 @@ export default {
   watch: {
     '$route' (to, from) { // 监听路由是否变化
       console.log(to.path)
-      if (to.path === '/Home') {
+      if (to.path === '/Home' || to.path === '/Classify') {
         this.$router.go(0)
       }
     }
@@ -132,8 +132,9 @@ export default {
         }
       }
     },
-    clickIcon () { // 点击改变收藏状态
+    clickIcon (clothes) { // 点击改变收藏状态
       this.iconLike = !this.iconLike
+      console.log(clothes)
     },
     buyNow () {
       this.$router.push({
