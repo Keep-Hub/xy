@@ -48,8 +48,8 @@ export default {
       this.$http.post('api/XYport/getAddress.php', {
         user: JSON.parse(sessionStorage.getItem('userInfo')).user_tel
       }).then(response => {
-        let selectAddress = response.data[+this.$route.query.addressId]
-        this.selectId = response.data[+this.$route.query.addressId].id
+        let selectAddress = response.data.data[+this.$route.query.addressId]
+        this.selectId = response.data.data[+this.$route.query.addressId].id
         this.addressInfo = {
           name: selectAddress.name,
           tel: selectAddress.tel,
@@ -76,7 +76,7 @@ export default {
         areaCode: content.areaCode,
         address: content.province + content.city + content.county + content.addressDetail
       }).then(response => {
-        this.$router.push('/Address')
+        this.$router.go(-1)
       })
     },
     onDelete () {
@@ -86,7 +86,7 @@ export default {
         statusCode: 3
       }).then(response => {
       })
-      this.$router.push('/Address')
+      this.$router.go(-1)
     },
     onChangeDetail (val) {
       if (val) {

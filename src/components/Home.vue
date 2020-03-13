@@ -36,7 +36,7 @@
             <h4>班服系列</h4>
             <van-grid :border="false" :column-num="3" :gutter="15">
                 <van-grid-item v-for="(i, index) in classClothes" :key="index">
-                    <div @click="commodityDetails(i.Id, i.Category_ID)">
+                    <div @click="commodityDetails(i.Id, i.Category_ID)" style="padding-bottom: .5rem">
                         <div class="pro-img">
                             <img width="100%" :src="i.Img" alt="">
                         </div>
@@ -53,12 +53,12 @@
             <h4>工作服系列</h4>
             <van-grid :border="false" :column-num="3" :gutter="15">
                 <van-grid-item v-for="(i, index) in WorkClothes" :key="index">
-                    <div @click="commodityDetails(i.Id, i.Category_ID)">
+                    <div @click="commodityDetails(i.Id, i.Category_ID)" style="padding-bottom: .5rem">
                         <div class="pro-img">
                             <img width="100%" :src="i.Img" alt="">
                         </div>
                         <div>
-                            <p class="optional-col">{{i.Optional_Color}}色可选</p>
+                            <p class="optional-col"><span style="align-self: center">{{i.Optional_Color}}色可选</span></p>
                             <p class="ov-hid">{{i.Title}}</p>
                             <p class="price">￥{{i.Price}}</p>
                         </div>
@@ -216,8 +216,8 @@ export default {
         margin: 0.5rem auto;
     }
     .optional-col{
-        height: 0.8rem;
-        font-size: 0.58rem;
+        height: 0.82rem;
+        font-size: 0.68rem;
         position: absolute;
         top: 0;
         right: .5rem;

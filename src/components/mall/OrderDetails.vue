@@ -1,84 +1,80 @@
 <template>
-    <div id="Order">
-        <van-search
-                v-model="searchValue"
-                placeholder="请搜索 商品名称 / 订单编号"
-                input-align="center"
-                left-icon=""
-                @search="onSearch"
-                @cancel="onCancel"
-                @input="onInput"
-        />
-        <div class="order-tab">
-            <van-tabs v-model="orderActive" swipeable :swipe-threshold="6" color="#22b8ea" line-height="2px" sticky >
-                <van-tab v-for="(item, index) in allOrder" :key="index" :title="item.orderTitle">
-                    <van-pull-refresh
-                        v-model="isLoading"
-                        success-text="刷新成功"
-                        @refresh="onRefresh(false)"
-                >
-                        <div style="background-color: #f9f9f9">
-                            <div v-for="(i, index) in item.order" :key="index" style="padding: .5rem .8rem .8rem .8rem; font-size: 0.875rem; margin-bottom: .6rem;background-color:white">
-                                <p style="padding: .5rem 0" class="clear_fix">
-                                    <span style="float: left">{{i.orderId}}</span>
-                                    <span v-if="i.orderStatus === '未付款' || i.orderStatus === '订单关闭'" style="color: #ed071e; float: right">{{i.orderStatus}}</span>
-                                    <span v-else style="color: #22b8ea; float: right">{{i.orderStatus}}</span>
-                                </p>
-                                <div v-for="(pro, index) in i.orderGoods" :key="index">
-                                    <van-divider :style="{ color: '#cccccc', borderColor: '#cccccc', margin: '0' }"></van-divider>
-                                    <van-row style="display: flex; padding: .6rem 0">
-                                        <van-col span="5" style="align-self: center">
-                                            <img :src="pro.goodsSrc" width="100%" alt="">
-                                        </van-col>
-                                        <van-col span="19" style="position: relative;padding-left: .5rem; font-size: 0.88rem;">
-                                            <p style="margin: 0.5rem 0;" class="clear_fix">{{pro.styleId}}# {{pro.styleName}} <span style="float: right">x10件</span> </p>
-                                            <van-row style="display: flex">
-                                                <van-col span="19">
-                                                    <div style="font-size: 0.76rem;display: flex;margin-bottom: 0.3rem; color: #4c4c4c" v-for="(item, index) in pro.colour" :key="index">
-                                                        <p style="float: left;align-self: center">{{item.colorName}}:</p>
-                                                        <p style="float: left; width: 80%; padding-left: 0.2rem;align-self: center; margin-top: .1rem;">
-                                                                <span v-for="(size, index) in item.selectedSize" :key="index">
-                                                                     <span style="margin-right: .3rem">{{size.sizeName}}-{{size.amount}}</span>
-                                                                </span>
-                                                        </p>
-                                                    </div>
-                                                </van-col>
-                                                <van-col span="5" style="align-self: center;">
-                                                    <p style="float: right;">￥2800.00</p>
-                                                </van-col>
-                                            </van-row>
-                                        </van-col>
-                                    </van-row>
-                                </div>
-                                <p>
-                                    <van-row>
-                                        <van-col span="7">共18888件商品</van-col>
-                                        <van-col span="9">合计: <span style="color: #ed071e">560000.06</span></van-col>
-                                        <van-col span="4" style="color: #22b8ea">
-                                            <span v-if="i.orderStatus === '未付款'" @click="toPay()">去付款</span>
-                                            <span v-else></span>
-                                        </van-col>
-                                        <van-col span="4" style="text-align: right;color: #22b8ea" @click="viewDetails(item, index)">查看详情</van-col>
-                                    </van-row>
+    <div id="OrderDetails">
+        <div class="order-details-top" style="background-color: white">
+            <p style="background-color: #61b5fb; padding: 1rem 2rem;color: white; text-align: left ">
+                <span> {{selectedOrder.orderStatus}}</span>
+            </p>
+            <p style="padding: 1rem; font-size: 0.78rem; color: #666666;">
+                <span>订单编号: {{selectedOrder.orderId}}</span>
+                <span style="margin-left: 1.2rem">2020-01-01 13:50:50</span>
+            </p>
+        </div>
+        <div style="background-color: white; margin-top: .5rem; font-size: .88rem;color: #666666;">
+            <div style="padding: .5rem 1rem" class="clear_fix">
+                <p style="float: left;">收件人:</p>
+                <p style="float: right;width: 70%;text-align: right">昵称短短的才好看(13800138000)</p>
+            </div>
+            <div style="padding: 0 1rem .5rem 1rem" class="clear_fix">
+                <p style="float: left">收货地址:</p>
+                <p style="float: right;width: 70%;text-align: right">河北省 石家庄市 长安区 杭州市西湖区 黄龙万科中心一栋1308号</p>
+            </div>
+        </div>
+        <div style="background-color: white;margin-top: .5rem">
+            <van-row style="display: flex; padding: .6rem 1rem" v-for="(pro, index) in selectedOrder.orderGoods" :key="index">
+                <van-col span="5" style="align-self: center">
+                    <img :src="pro.goodsSrc" width="100%" alt="">
+                </van-col>
+                <van-col span="19" style="position: relative;padding-left: .5rem; font-size: 0.88rem;">
+                    <p style="margin: 0.5rem 0;" class="clear_fix">{{pro.styleId}}# {{pro.styleName}}<span style="float: right">x10件</span> </p>
+                    <van-row style="display: flex">
+                        <van-col span="19">
+                            <div style="font-size: 0.76rem;display: flex;margin-bottom: 0.3rem; color: #4c4c4c" v-for="(item, index) in pro.colour" :key="index">
+                                <p style="float: left;align-self: center">{{item.colorName}}:</p>
+                                <p style="float: left; width: 80%; padding-left: 0.2rem;align-self: center; margin-top: .1rem;">
+                                                <span v-for="(size, index) in item.selectedSize" :key="index">
+                                                     <span style="margin-right: .3rem">{{size.sizeName}}-{{size.amount}}</span>
+                                                </span>
                                 </p>
                             </div>
-                        </div>
-                    </van-pull-refresh>
-                </van-tab>
-            </van-tabs>
+                        </van-col>
+                        <van-col span="5" style="align-self: center;">
+                            <p style="float: right;">￥2800.00</p>
+                        </van-col>
+                    </van-row>
+                </van-col>
+            </van-row>
+        </div>
+        <div style="background-color: white;margin-top: .5rem">
+            <div style="padding: .6rem 1rem; color: #666666;font-size: .88rem">
+                <p style="margin: .5rem 0">成衣总件数 <span style="float: right;">x2件</span></p>
+                <p style="margin: .5rem 0">商品合计 <span style="float: right;">￥56.00</span></p>
+                <p style="margin: .5rem 0">推广活动优惠 <span style="float: right;">￥0.00</span></p>
+                <p style="margin: .5rem 0">运费<span style="float: right;">￥8.00</span></p>
+                <p style="margin: .5rem 0">订单总价 <span style="float: right; color: red">￥88.00</span></p>
+            </div>
+        </div>
+        <div style="background-color: white;margin-top: .5rem">
+            <div style="padding: .6rem 1rem; color: #666666;font-size: .88rem">
+                <p style="margin: .5rem 0">订单号 <span style="float: right; color: #000000">{{selectedOrder.orderId}}</span></p>
+                <p style="margin: .5rem 0">提货类型 <span style="float: right; color: #000000">快递现付</span></p>
+                <p style="margin: .5rem 0">快递公司 <span style="float: right; color: #000000">顺丰速运</span></p>
+                <p style="margin: .5rem 0">快递单号<span style="float: right; color: #000000">74659523989146</span></p>
+            </div>
+        </div>
+        <div style="background-color: white;margin-top: .5rem;">
+            <van-cell title="订单物流跟踪" icon="logistics" title-style="color: #666666">
+                <van-icon name="arrow" />
+            </van-cell>
         </div>
     </div>
 </template>
 
 <script>
 export default {
-  name: 'order',
+  name: 'OrderDetails',
   data () {
     return {
-      searchValue: '',
-      orderActive: 0,
-      inputValue: '',
-      isLoading: false,
+      selectedOrder: [],
       allOrder: [
         {
           id: 1,
@@ -546,56 +542,35 @@ export default {
   computed: {},
   watch: {
     '$route' (to, from) { // 监听路由是否变化
-      this.orderActive = this.$route.query.id
+      this.selectedOrder = JSON.parse(localStorage.getItem('aaa'))
     }
   },
   created () {
   },
   mounted () {
-    this.orderActive = this.$route.query.id
+    this.selectedOrder = JSON.parse(localStorage.getItem('aaa'))
+    console.log(this.selectedOrder)
   },
-  methods: {
-    onSearch (val) {
-      alert(val)
-    },
-    onInput (val) {
-      this.inputValue = val
-      console.log(val)
-    },
-    onCancel () {
-      alert('取消')
-    },
-    onRefresh (showToast) {
-      setTimeout(() => {
-        if (showToast) {
-          this.$toast(this.$t('success'))
-        }
-
-        this.isLoading = false
-        this.count++
-      }, 1000)
-    },
-    viewDetails (item, orderIndex) {
-      console.log(item.order[orderIndex])
-      localStorage.setItem('aaa', JSON.stringify(item.order[orderIndex]))
-      this.$router.push({
-        path: '/OrderDetails',
-        query: {
-        }})
-    },
-    toPay () {
-      alert('付款')
-    }
-  }
+  methods: {}
 }
 </script>
 
 <style scoped>
-    #Order{
-        background: transparent;
-        background-size: 100% 100%;
-        width: 100%;
-        height:100%;
+#OrderDetails{
+    background: #f9f9f9;
+    background-size: 100% 100%;
+    width: 100%;
+    height:100%;
+    /*position: absolute;*/
+}
+.van-icon-logistics::before {
+    transform: scale(-1,1);
+}
+</style>
+<style lang="less">
+    *{
+        margin: 0;
+        padding: 0;
     }
     .clear_fix{
         zoom: 1
@@ -608,15 +583,6 @@ export default {
         clear: both;
         height: 0;
     }
-</style>
-<style lang="less">
-    *{
-        margin: 0;
-        padding: 0;
-    }
-    .order-tab.van-tab--active {
-        color: #22b8ea;
-        font-weight: 500;
-        font-size: 0.94rem;
+    .order-details-top{
     }
 </style>

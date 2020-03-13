@@ -20,7 +20,7 @@
                 </van-col>
                 <van-col span="8" style="align-self: center;">
                     <p style="color: #c6e4fe; margin-bottom: .2rem">余额</p>
-                    <p style="color: #dff1ff">￥800000000</p>
+                    <p style="color: #dff1ff">￥0</p>
                 </van-col>
             </van-row>
         </div>

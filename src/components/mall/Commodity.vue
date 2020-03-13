@@ -23,7 +23,7 @@
                                 <van-icon name="photo-o" size="1.6rem"/>
                                 <p>下载图片</p>
                             </van-col>
-                            <van-col span="6" @click="clickIcon(clothes)">
+                            <van-col span="6" @click="clickIcon(clothes.styleId)">
                                 <van-icon v-if="iconLike" name="like-o" size="1.6rem"/>
                                 <van-icon v-else name="like" size="1.6rem"  color="red"/>
                                 <p>收藏</p>
@@ -88,13 +88,18 @@ export default {
   computed: {},
   watch: {
     '$route' (to, from) { // 监听路由是否变化
-      console.log(to.path)
-      if (to.path === '/Home' || to.path === '/Classify') {
-        this.$router.go(0)
+      if (from.path === '/Home' || from.path === '/Classify' || from.path === '/SearchResult') {
+        if (to.query.proId !== from.query.proId) {
+          this.init(this.$route.query.proId)
+          this.$router.go(0)
+        }
       }
     }
   },
   created () {
+    if (this.$route.query) {
+      this.init(this.$route.query.proId)
+    }
   },
   mounted () {
     this.init(this.$route.query.proId)
@@ -141,7 +146,7 @@ export default {
         path: '/BuyNow',
         query: {
           proId: this.goodsInfo[0].styleId,
-          type: 1
+          type: '1'
         }})
     },
     shoppingCart () {
@@ -149,7 +154,7 @@ export default {
         path: '/BuyNow',
         query: {
           proId: this.goodsInfo[0].styleId,
-          type: 0
+          type: '0'
         }})
     },
     test () {

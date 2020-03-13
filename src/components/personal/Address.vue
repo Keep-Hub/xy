@@ -2,7 +2,7 @@
     <div id="Address">
         <div style="padding-bottom: 3.5rem">
             <van-swipe-cell v-for="(item, index) in allAddress" :key="index">
-                <div style="margin:  .8rem .8rem 0 .8rem ; background-color: white; border-radius: .5rem;padding: .5rem;color: #323233">
+                <div style="margin:  .8rem .8rem 0 .8rem ; background-color: white; border-radius: .5rem;padding: .5rem;color: #323233" @click="_selectAddress(item, index)">
                     <div style="font-size: 1.12rem">
                         <span>{{item.name}}</span>
                         <span style="margin: 0 .5rem">{{item.tel}}</span>
@@ -69,7 +69,7 @@ export default {
       this.$http.post('api/XYport/getAddress.php', {
         user: JSON.parse(sessionStorage.getItem('userInfo')).user_tel
       }).then(response => {
-        this.allAddress = response.data
+        this.allAddress = response.data.data
       })
     },
     editAddress (index) {
@@ -99,6 +99,12 @@ export default {
     },
     newAddress () {
       this.$router.push('/addAddress')
+    },
+    _selectAddress (item, index) {
+      if (this.$route.query.code === '1') {
+        localStorage.setItem('addressCode', index)
+        this.$router.go(-1)
+      }
     }
   }
 }

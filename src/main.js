@@ -8,7 +8,7 @@ import Axios from 'axios'
 import './config/rem'
 // 挂载全局方法
 import globalMethod from './globalmethod/globalFunction'
-import { Button, Swipe, SwipeItem, Tabbar, TabbarItem, Row, Col, Grid, GridItem, Divider, Lazyload, List, Cell, CellGroup, Image, ImagePreview, Sidebar, SidebarItem, IndexBar, IndexAnchor, Icon, GoodsAction, GoodsActionIcon, GoodsActionButton, Stepper, Sku, SubmitBar, Popup, Dialog, Checkbox, CheckboxGroup, SwipeCell, Sticky, Notify, Uploader, Toast, Tab, Tabs, Search, Field, PasswordInput, NumberKeyboard, AddressList, AddressEdit, Area, PullRefresh } from 'vant'
+import { Button, Swipe, SwipeItem, Tabbar, TabbarItem, Row, Col, Grid, GridItem, Divider, Lazyload, List, Cell, CellGroup, Image, ImagePreview, Sidebar, SidebarItem, IndexBar, IndexAnchor, Icon, GoodsAction, GoodsActionIcon, GoodsActionButton, Stepper, Sku, SubmitBar, Popup, Dialog, Checkbox, CheckboxGroup, SwipeCell, Sticky, Notify, Uploader, Toast, Tab, Tabs, Search, Field, PasswordInput, NumberKeyboard, AddressList, AddressEdit, Area, PullRefresh, DatetimePicker, DropdownMenu, DropdownItem, Picker } from 'vant'
 /* 引入移动端手势库 */
 import directives from './directives/touch'
 // 使用md5加密
@@ -19,7 +19,7 @@ Vue.use(Button).use(Swipe).use(SwipeItem).use(Tabbar).use(TabbarItem).use(Row).u
   .use(Cell).use(CellGroup).use(Image).use(ImagePreview).use(Sidebar).use(SidebarItem).use(IndexBar).use(IndexAnchor).use(Icon)
   .use(GoodsAction).use(GoodsActionIcon).use(GoodsActionButton).use(Stepper).use(Sku).use(SubmitBar).use(Popup).use(Dialog).use(Checkbox)
   .use(CheckboxGroup).use(SwipeCell).use(Sticky).use(Notify).use(Uploader).use(Toast).use(Tab).use(Tabs).use(Search).use(Field).use(PasswordInput).use(NumberKeyboard)
-  .use(AddressList).use(AddressEdit).use(Area).use(PullRefresh)
+  .use(AddressList).use(AddressEdit).use(Area).use(PullRefresh).use(DatetimePicker).use(DropdownMenu).use(DropdownItem).use(Picker)
 Vue.use(Lazyload, {
   lazyComponent: true
 })

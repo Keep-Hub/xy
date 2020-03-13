@@ -47,7 +47,7 @@ export default {
         areaCode: content.areaCode,
         address: content.province + content.city + content.county + content.addressDetail
       }).then(response => {
-        this.$router.push('/Address')
+        this.$router.go(-1)
       })
     },
     onChangeDetail (val) {

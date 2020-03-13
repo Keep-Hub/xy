@@ -104,11 +104,9 @@ export default {
       colorId: '',
       allArr: [],
       show: false,
-      showType: +this.$route.query.type
+      showType: false
 
     }
-  },
-  created () {
   },
   computed: {
   },
@@ -117,8 +115,23 @@ export default {
   watch: {
     '$route' (to, from) { // 监听路由是否变化
       if (to.path === '/Commodity') {
-        this.$router.go(0)
+        if (to.query.proId !== from.query.proId) {
+          this.styleId = this.$route.query.proId
+          this.init(this.$route.query.proId)
+        }
       }
+      if (from.path === '/Commodity') {
+        this.init(this.$route.query.proId) // 有点小bug
+      }
+    },
+    showType (val, oldVal) {
+      console.log(val, oldVal)
+    }
+  },
+  created () {
+    if (this.$route.query) {
+      this.styleId = this.$route.query.proId
+      this.init(this.$route.query.proId)
     }
   },
   methods: {
@@ -137,9 +150,14 @@ export default {
         this.colorId = this.goodsInfo[0].colorId
         this.onClickGoods = this.goodsInfo[0].img
       })
+      if (this.$route.query.type === '1') { // 初始化购物类型 1 = 加入购物车 0 = 立即购买
+        this.showType = true
+      } else if (this.$route.query.type === '0') {
+        this.showType = false
+      }
     },
     valueChange (item, index) { // 数量输入框的值改变执行的方法
-      console.log('row=' + index + ',valueChange=' + item.addValue)
+      // console.log('row=' + index + ',valueChange=' + item.addValue)
       this.inspectArray(index, item.size, item.price, item.addValue, item.id)
       this.sizeSort()
       this.totalPrice()
@@ -165,7 +183,7 @@ export default {
       // console.log(this.allPrice)
     },
     inspectArray (rowIndex, size, price, amount, sizeId) { // 添加购物清单
-      console.log(rowIndex, size, price, amount, sizeId)
+      // console.log(rowIndex, size, price, amount, sizeId)
       let addColor = {
         colorName: this.colorId,
         selectedSize: [
@@ -189,15 +207,13 @@ export default {
           let sizeObject = this.allArr[colorIndex - 1].selectedSize // 传入尺码的数组入checkSize进行检查是否存在该码数
           let sizeIndex = this.checkSize(size, sizeObject)
           if (sizeIndex > 0) {
-            console.log(this.colorId + '改变' + size + '数量为' + amount)
+            // console.log(this.colorId + '改变' + size + '数量为' + amount)
             this.allArr[colorIndex - 1].selectedSize[sizeIndex - 1].amount = amount // 修改存在的尺码的数量
           } else {
-            console.log(this.colorId + '添加新尺码' + size)
+            // console.log(this.colorId + '添加新尺码' + size)
             this.allArr[colorIndex - 1].selectedSize.push(newSize) // 尺码不存在 添加新的尺码
           }
-          // console.log('颜色存在了' + this.colorId)
         } else {
-          // console.log('添加新颜色')
           if (amount > 0) { // 数量大于零时再添加新颜色
             this.allArr.push(addColor)
           }
@@ -256,7 +272,7 @@ export default {
       this.show = !this.show
     },
     addCart () {
-      console.log(this.allArr)
+      // console.log(this.allArr)
       this.delNullArr()
       if (this.allArr.length > 0) {
         let code = this.styleId.replace(/\s*/g, '')
@@ -277,7 +293,20 @@ export default {
         })
       }
     },
-    buyNow () {}
+    buyNow () {
+      this.delNullArr()
+      if (this.allArr.length > 0) {
+        let code = this.styleId.replace(/\s*/g, '')
+        localStorage.setItem(code, JSON.stringify(this.allArr))
+        this.$router.push('/SubmitOrder')
+      } else {
+        this.$dialog.alert({
+          message: '请先添加商品！'
+        }).then(() => {
+          // on close
+        })
+      }
+    }
   },
   mounted () {
     this.init(this.$route.query.proId)
@@ -303,7 +332,7 @@ export default {
     background-size: 100% 100%;
     width: 100%;
     height:100%;
-    min-height: 29rem;
+    // min-height: 29rem;
 }
     .selection-goods{
         padding: 15px;

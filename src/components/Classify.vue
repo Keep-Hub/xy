@@ -10,16 +10,16 @@
                 <div class="info_main" v-for="(item, index) in allClothes" :key="index">
                     <img :src="item.sortImg" alt="">
                     <div style="margin-bottom: .6rem" v-for="(sort, index) in item.sortClothes" :key="index">
-                        <p style="width: auto; font-size: .96rem; margin: 0.3rem 0 .5rem 0; font-weight: bolder; border-bottom: .01rem solid #f8f8f8; padding-bottom: .3rem">
+                        <p style="width: auto; font-size: .96rem; margin: 0.3rem 0 .5rem 0; font-weight: bolder; border-bottom: 1px solid #f8f8f8; padding-bottom: .3rem">
                             {{sort.title}}
                             <span style="float: right; font-size: 0.8rem; color: #7f7f7f; font-weight: lighter" @click="moreClothes()">更多</span>
                         </p>
-                        <van-grid :border="false" :column-num="3">
+                        <van-grid :border="false" :column-num="3" class="gird-change">
                             <van-grid-item v-for="(i, index) in sort.clothes" :key="index" @click="commodityDetails(i.id, i.categoryId)">
                                 <div style="margin: 0 auto">
                                     <img width="100%" :src="i.img" alt="">
                                 </div>
-                                <p style="font-size: 0.8rem;color: #515151; margin: 0.3rem 0;text-align: center">{{i.categoryId}}</p>
+                                <p style="font-size: 0.8rem;color: #515151; margin-bottom: 0.3rem;text-align: center">{{i.categoryId}}</p>
                             </van-grid-item>
                         </van-grid>
                     </div>
@@ -46,10 +46,12 @@ export default {
   watch: {
     '$route' (to, from) { // 监听路由是否变化
       if (to.path === '/Classify') {
-        this.activeKey = this.$route.query.id
-        this.timer = setTimeout(() => {
-          this.scrollTo((+this.$route.query.id))
-        }, 300)
+        if (to.query.id !== from.query.id) {
+          this.activeKey = this.$route.query.id
+          this.timer = setTimeout(() => {
+            this.scrollTo((+this.$route.query.id))
+          }, 300)
+        }
       }
     }
   },
@@ -219,7 +221,7 @@ export default {
         padding: 0;
         margin: 0;
     }
-    .van-grid-item__content{
+    .gird-change .van-grid-item__content{
         padding: 0.5rem .6rem .6rem 0;
     }
 </style>

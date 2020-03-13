@@ -6,20 +6,23 @@ const ShoppingCart = () => import('../components/ShoppingCart.vue')
 const Mines = () => import('../components/Mines.vue')
 const Commodity = () => import('../components/mall/Commodity.vue')
 const Search = () => import('../components/mall/Search.vue')
+const SearchResult = () => import('../components/mall/SearchResult.vue')
 const BuyNow = () => import('../components/mall/BuyNow.vue')
 const Order = () => import('../components/mall/Order.vue')
+const OrderDetails = () => import('../components/mall/OrderDetails.vue')
+const SubmitOrder = () => import('../components/mall/SubmitOrder.vue')
 const MoreClothes = () => import('../components/mall/MoreClothes.vue')
 const Logon = () => import('../components/personal/Logon.vue')
 const Register = () => import('../components/personal/Register.vue')
-const forgetPwd = () => import('../components/personal/forgetPwd.vue')
+const forgetPwd = () => import('../components/personal/ForgetPwd.vue')
 const AccountInfo = () => import('../components/personal/AccountInfo.vue')
 const AccountSecurity = () => import('../components/personal/AccountSecurity.vue')
 const Address = () => import('../components/personal/Address.vue')
 const CapitalFlow = () => import('../components/personal/CapitalFlow.vue')
 const PostSale = () => import('../components/personal/PostSale.vue')
 const MyCollection = () => import('../components/personal/MyCollection.vue')
-const addAddress = () => import('../components/personal/addAddress.vue')
-const addressEdit = () => import('../components/personal/addressEdit.vue')
+const addAddress = () => import('../components/personal/AddAddress.vue')
+const addressEdit = () => import('../components/personal/AddressEdit.vue')
 const Test = () => import('../components/Test.vue')
 
 Vue.use(Router)
@@ -71,6 +74,11 @@ export default new Router({
       component: Search,
       meta: { keepAlive: true, title: '搜索' }
     }, {
+      name: 'SearchResult',
+      path: '/SearchResult',
+      component: SearchResult,
+      meta: { keepAlive: true, title: '搜索' }
+    }, {
       name: 'BuyNow',
       path: '/BuyNow',
       component: BuyNow,
@@ -80,6 +88,16 @@ export default new Router({
       path: '/Order',
       component: Order,
       meta: { keepAlive: true, title: '订单', requireAuth: true }
+    }, {
+      name: 'OrderDetails',
+      path: '/OrderDetails',
+      component: OrderDetails,
+      meta: { keepAlive: true, title: '订单详细', requireAuth: true }
+    }, {
+      name: 'SubmitOrder',
+      path: '/SubmitOrder',
+      component: SubmitOrder,
+      meta: { keepAlive: true, title: '提交订单', requireAuth: true }
     }, {
       name: 'Logon',
       path: '/Logon',
